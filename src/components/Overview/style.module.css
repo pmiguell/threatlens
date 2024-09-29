@@ -1,0 +1,37 @@
+.app {
+    margin: 1rem 3rem 0 18rem;
+}
+
+.dashboardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.welcome h2 {
+    color: #eee;
+    font-size: 1.75rem;
+}
+
+.welcome p {
+    color: #B0B0B0;
+}
+
+.dashboardHeaderIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.headerIcon {
+    background-color: #2A303D;
+    padding: 0.25rem;
+    border-radius: 5px;
+    font-size: 30px;
+    color: #eee;
+}
+
+.infosContainer {
+    margin-top: 4rem;
+    display: flex;
+    gap: 2rem;
+}

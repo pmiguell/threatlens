@@ -1,0 +1,35 @@
+.proportionCardsContainer {
+    display: flex;
+    gap: 2rem;
+}
+
+.proportionCard {
+    background-image: linear-gradient(to bottom, #6558ff, #3D3599);
+    color: #eee;
+    border-radius: 15px;
+    width: 16rem;
+    height: 10rem;
+    padding: 1rem 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: 4px 4px 10px #0000004f;
+}
+
+.description {
+    font-size: 20px;
+}
+
+.value {
+    font-size: 30px;
+}
+
+.percentValue {
+    font-size: 18px;
+}
+
+.valueContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}

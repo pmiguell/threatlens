@@ -1,0 +1,10 @@
+.barChartContainer {
+    background-color: #2A303D;
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.description {
+    color: #eee;
+    margin-bottom: 2rem;
+}

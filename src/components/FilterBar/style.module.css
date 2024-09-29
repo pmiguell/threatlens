@@ -1,0 +1,51 @@
+.filterContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-left: 7rem;
+    margin-top: 4rem;
+}
+
+.periodBar {
+    background-color: #2A303D;
+    width: 40rem;
+    height: 2.5rem;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+
+.periodBar button {
+    background-color: transparent;
+    color: #eee;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.periodBar button:hover {
+    color: #b0b0b0;
+}
+
+.intervalBtn {
+    background-color: #2A303D;
+    color: #eee;
+    border: none;
+    border-radius: 15px;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 14px;
+    height: 2.5rem;
+}
+
+.activeBtn {
+    background-color: #6558ff !important;
+    width: 5rem;
+    height: 1.75rem;
+    border-radius: 15px;
+}
