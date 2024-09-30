@@ -1,0 +1,32 @@
+.attribute{
+    display:flex;
+    gap: 0.75rem;
+    margin: 1rem 0;
+    justify-content: center;
+    
+}
+
+.attribute label{
+    color: #8A8A8A;
+    width: 15%;
+    font-weight:400;
+    flex-basis: 2;
+    white-space: nowrap;
+    flex: 1 1 1;
+}
+
+.attribute input{
+    flex: 1 2 1;
+    display: inline-flex;
+    width: 85%;
+    background-color: transparent;
+    border: none;
+    border-radius: 5px;
+    height: 2rem;
+    outline: none;
+
+}
+
+.attribute input:hover{
+    background-color: #2C2C2C;
+}
