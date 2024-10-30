@@ -22,6 +22,7 @@ export default function Overview() {
   };
 
   const dataPerYear = {
+    label: "no ano",
     analyzedPosts: 1500,
     relevantPosts: 322,
     mostRelevantPosts: [
@@ -32,6 +33,7 @@ export default function Overview() {
   };
 
   const dataPerMonth = {
+    label: "no mês",
     analyzedPosts: 1000,
     relevantPosts: 124,
     mostRelevantPosts: [
@@ -42,6 +44,7 @@ export default function Overview() {
   };
 
   const dataPerWeek = {
+    label: "na semana",
     analyzedPosts: 500,
     relevantPosts: 87,
     mostRelevantPosts: [
@@ -52,6 +55,7 @@ export default function Overview() {
   };
 
   const dataPerDay = {
+    label: "hoje",
     analyzedPosts: 75,
     relevantPosts: 17,
     mostRelevantPosts: [
@@ -103,6 +107,7 @@ export default function Overview() {
           <ProportionCard
             analyzedPosts={displayedData.analyzedPosts}
             relevantPosts={displayedData.relevantPosts}
+            label={displayedData.label}
           />
           <RelevantPostsTable mostRelevantPosts={displayedData.mostRelevantPosts} />
         </div>
