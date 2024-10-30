@@ -1,27 +1,25 @@
-import { Pie } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 import style from "./style.module.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
-export default function PieChart() {
+export default function DoughnutChart() {
   const data = {
-    labels: ["Não relevantes", "IoC", "Relevantes", "Keywords"],
+    labels: ["Baixa Relevância", "Média Relevância", "Alta Relevância"],
     datasets: [
       {
         label: "Quantidade de posts",
-        data: [23234, 6926, 200, 5304],
+        data: [23234, 6926, 5504],
         backgroundColor: [
           "#8BC34A",
           "#FFCF4D",
-          "#FF3C38",
-          "#3ABEFF"
+          "#FF3C38"
         ],
         borderColor: [
           "#5A9216",
           "#D4A017",
-          "#B22A29",
-          "#1C88B0"
+          "#B22A29"
         ],
         borderWidth: 2,
       },
@@ -37,10 +35,11 @@ export default function PieChart() {
       },
     },
   };
+
   return (
-    <div className={style.pieChartContainer}>
-      <h2 className={style.description}>Rotulagem dos posts</h2>
-      <Pie data={data} options={options} />
+    <div className={style.doughnutChartContainer}>
+      <h2 className={style.description}>Rotulagem dos posts por Relevância</h2>
+      <Doughnut data={data} options={options} />
     </div>
   );
 }

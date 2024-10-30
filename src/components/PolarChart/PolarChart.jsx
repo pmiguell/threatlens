@@ -1,16 +1,17 @@
-import { Pie } from "react-chartjs-2";
+import { PolarArea } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
+import 'chart.js/auto';
 import style from "./style.module.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
-export default function PieChart() {
+export default function PolarChart() {
   const data = {
     labels: ["Não relevantes", "IoC", "Relevantes", "Keywords"],
     datasets: [
       {
         label: "Quantidade de posts",
-        data: [23234, 6926, 200, 5304],
+        data: [23234, 6926, 3341, 5304],
         backgroundColor: [
           "#8BC34A",
           "#FFCF4D",
@@ -37,10 +38,11 @@ export default function PieChart() {
       },
     },
   };
+
   return (
-    <div className={style.pieChartContainer}>
-      <h2 className={style.description}>Rotulagem dos posts</h2>
-      <Pie data={data} options={options} />
+    <div className={style.polarAreaChartContainer}>
+      <h2 className={style.description}>Distribuição dos posts</h2>
+      <PolarArea data={data} options={options} />
     </div>
   );
 }

@@ -1,12 +1,15 @@
 .postPopUp{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #202020;
     width: 60%;
     height: 90vh;
     padding: 1rem 2rem 5rem 5rem;
-    margin: 2rem auto;
     border-radius: 10px;
-    position: relative;
 }
+
 .topIcons{
     position: sticky;
     top: 0;
@@ -46,6 +49,14 @@
     line-height: 2rem;
 }
 
-
-
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
+    z-index: 999; /* Certifique-se de que a sobreposição esteja abaixo do popup */
+}
+  
 

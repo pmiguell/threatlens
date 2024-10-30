@@ -1,0 +1,13 @@
+.doughnutChartContainer {
+    background-color: #2A303D;
+    border-radius: 15px;
+    width: 27.4rem;
+    height: 34rem;
+    padding: 2rem;
+}
+
+.description {
+    color: #eee;
+    margin-bottom: 2rem;
+    text-align: center;
+}
