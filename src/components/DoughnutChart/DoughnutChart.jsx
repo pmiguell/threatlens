@@ -10,7 +10,7 @@ export default function DoughnutChart() {
     datasets: [
       {
         label: "Quantidade de posts",
-        data: [23234, 6926, 5504],
+        data: [8098, 1372, 1056],
         backgroundColor: [
           "#8BC34A",
           "#FFCF4D",

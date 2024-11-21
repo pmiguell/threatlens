@@ -1,7 +1,7 @@
 import style from "./style.module.css";
 import PostAttribute from "../PostAttribute/PostAttribute";
 
-export default function PostPopUp({ isOpen, onClose, id, category, created_at, ioc, keyword, relevant }) {
+export default function PostPopUp({ isOpen, onClose, id, category, created_at, ioc, keyword, relevant, fulltext }) {
     if (!isOpen) {
         return null;
     }
@@ -28,13 +28,7 @@ export default function PostPopUp({ isOpen, onClose, id, category, created_at, i
                     <hr className={style.postDivider} />
 
                     <div className={style.postBody}>
-                        firefox acessar deep web reparei firefox navegador duckduck tor browser parecido suporte
-                        firefox diferenca caso utilizar firefox dois praticamente mesma tor browser baseado firefox
-                        salvo modificacoes extensoes acompanha qualquer forma tor browser preparado seguro exige
-                        configuracoes alem nivel seguranca basicamente browser leves modificacoes diferentes versoes
-                        mesma detalhe firefox extensao webrtc webgl desativados padrao acarretar vazamento usuario
-                        quiser firefox recomendo pesquisar how stop decrease browser fingerprint perceber maioria
-                        vezes solucao passa desativar javascript tor modificacao firefox
+                        <p>{fulltext}</p>
                     </div>
                 </div>
             </div>

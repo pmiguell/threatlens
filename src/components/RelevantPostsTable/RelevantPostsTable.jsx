@@ -60,6 +60,7 @@ export default function RelevantPostsTable({ mostRelevantPosts }) {
         ioc={selectedPost?.ioc} 
         keyword={selectedPost?.keyword} 
         relevant={selectedPost?.relevant} 
+        fulltext={selectedPost?.fulltext}
       />
     </div>
   );

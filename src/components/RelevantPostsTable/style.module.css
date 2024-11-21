@@ -47,6 +47,12 @@ tbody tr {
 
 td {
     padding: 0 0.5rem;
+    white-space: nowrap;
+    overflow-x: auto;
+    width: 100%;
+    max-width: 250px;
+    scrollbar-width: thin;
+    scrollbar-color: #888 transparent;
 }
 
 tbody tr:nth-child(even) {
