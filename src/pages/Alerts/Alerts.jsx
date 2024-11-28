@@ -35,8 +35,8 @@ export default function Alerts() {
         <button>
           <GoAlert className={style.btnIcon} /> Meus alertas
         </button>
-        <button>
-          <IoIosAddCircleOutline className={style.btnIcon} onClick={handleOpenPopup} /> Criar novo alerta
+        <button onClick={handleOpenPopup}>
+          <IoIosAddCircleOutline className={style.btnIcon}/> Criar novo alerta
         </button>
       </div>
       <div className={style.alertsContainer}>

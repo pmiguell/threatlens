@@ -5,10 +5,11 @@
     transform: translate(-40%, -50%);
     width: 45%;
     height: 90vh;
-    padding: 1rem 2rem 5rem 3rem;
+    padding: 1rem 2rem 0 3rem;
     border-radius: 10px;
     background-color: #202020;
     color: #FFF;
+    overflow-y: scroll;
 }
 
 .closeIcon{
@@ -17,8 +18,8 @@
     cursor: pointer;
 }
 
-.alertContent{
-    height: 100%;
+.alertContent{  
+    min-height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -63,15 +64,16 @@
 }
 
 .tagsContainer{
+    min-height: 10px;
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
 
 .button{
-    width: 80%;
-    height: 3rem;
-    margin: 0 auto;
+    min-width: 80%;
+    min-height: 3rem;
+    margin: 2rem auto;
     border-radius: 10px;
     background-color: #6558FF;
     color: #FFF;
