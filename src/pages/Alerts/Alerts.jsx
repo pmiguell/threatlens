@@ -5,8 +5,20 @@ import { GoAlert } from "react-icons/go";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
+import AlertPopUp from "../../components/AlertPopUp/AlertPopUp";
+import { useState } from "react";
+
 
 export default function Alerts() {
+  const[isOpen, setIsOpen] = useState(false);
+  
+  const handleOpenPopup = ()=> {
+    setIsOpen(true);
+  };
+  const handleClosePopup = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className={style.alerts}>
       <header className={style.header}>
@@ -24,7 +36,7 @@ export default function Alerts() {
           <GoAlert className={style.btnIcon} /> Meus alertas
         </button>
         <button>
-          <IoIosAddCircleOutline className={style.btnIcon} /> Criar novo alerta
+          <IoIosAddCircleOutline className={style.btnIcon} onClick={handleOpenPopup} /> Criar novo alerta
         </button>
       </div>
       <div className={style.alertsContainer}>
@@ -80,6 +92,10 @@ export default function Alerts() {
           </div>
         </div>
       </div>
+      <AlertPopUp 
+        isOpen={isOpen}
+        onClose = {handleClosePopup}
+      />
     </div>
   );
 }

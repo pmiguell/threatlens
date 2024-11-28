@@ -1,0 +1,12 @@
+.tag{
+    background-color: #2A303D;
+    width: fit-content;
+    display: flex;
+    gap: 1rem;
+    padding: 0.2rem 0.75rem;
+    border-radius: 5px;
+}
+
+.closeIcon{
+    cursor: pointer;
+}

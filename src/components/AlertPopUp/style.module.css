@@ -1,0 +1,80 @@
+.alertPopUp{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    width: 45%;
+    height: 90vh;
+    padding: 1rem 2rem 5rem 3rem;
+    border-radius: 10px;
+    background-color: #202020;
+    color: #FFF;
+}
+
+.closeIcon{
+    position: sticky;
+    text-align: right;
+    cursor: pointer;
+}
+
+.alertContent{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.alertContainer{
+    width: 80%;
+    margin: 1rem auto;
+}
+
+.alertContainer h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+
+.alertConfigs h2{
+    font-weight: 400;
+    margin-bottom: 1.3rem;
+}
+
+.keywordsInput{
+    margin-bottom: 3rem;
+    width: 100%;
+}
+
+.keywordsInput input{
+    width: 100%;
+    height: 3rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    resize: none;
+    background-color: #2A303D;
+    color: #FFF;
+    font-size: 16px;
+    font-family: inherit;
+
+}
+
+.tagsContainer{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.button{
+    width: 80%;
+    height: 3rem;
+    margin: 0 auto;
+    border-radius: 10px;
+    background-color: #6558FF;
+    color: #FFF;
+    font-size: 20px;
+    
+}
