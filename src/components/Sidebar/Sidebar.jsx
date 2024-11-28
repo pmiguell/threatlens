@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
 import { GoAlert } from "react-icons/go";
 import { PiChatCenteredDots } from "react-icons/pi";
@@ -19,7 +20,15 @@ export default function Sidebar() {
           <h2 className={style.navCategory}>Geral</h2>
           <ul>
             <li>
-              <a href="#" className={style.activeLink}><AiOutlineHome size={20} color="#EEE" />Overview</a>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? `${style.activeLink}` : ""
+                }
+              >
+                <AiOutlineHome size={20} color="#EEE" />
+                Overview
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -28,14 +37,37 @@ export default function Sidebar() {
           <h2 className={style.navCategory}>Serviços</h2>
           <ul>
             <li>
-
-              <a href="#"><GoAlert size={20} color="#EEE" />Alertas</a>
+              <NavLink
+                to="/alerts"
+                className={({ isActive }) =>
+                  isActive ? `${style.activeLink}` : ""
+                }
+              >
+                <GoAlert size={20} color="#EEE" />
+                Alertas
+              </NavLink>
             </li>
             <li>
-              <a href="#"><PiChatCenteredDots size={20} color="#EEE" />Posts</a>
+              <NavLink
+                to="/posts"
+                className={({ isActive }) =>
+                  isActive ? `${style.activeLink}` : ""
+                }
+              >
+                <PiChatCenteredDots size={20} color="#EEE" />
+                Posts
+              </NavLink>
             </li>
             <li>
-              <a href="#"><TbReportAnalytics size={20} color="#EEE" />Relatórios</a>
+              <NavLink
+                to="/reports"
+                className={({ isActive }) =>
+                  isActive ? `${style.activeLink}` : ""
+                }
+              >
+                <TbReportAnalytics size={20} color="#EEE" />
+                Relatórios
+              </NavLink>
             </li>
           </ul>
         </div>
@@ -44,10 +76,26 @@ export default function Sidebar() {
           <h2 className={style.navCategory}>Conta</h2>
           <ul>
             <li>
-              <a href="#"><CiUser size={20} color="#EEE" />Minha conta</a>
+              <NavLink
+                to="/account"
+                className={({ isActive }) =>
+                  isActive ? `${style.activeLink}` : ""
+                }
+              >
+                <CiUser size={20} color="#EEE" />
+                Minha conta
+              </NavLink>
             </li>
             <li>
-              <a href="#"><CiLogout size={20} color="#EEE" />Logout</a>
+              <NavLink
+                to="/logout"
+                className={({ isActive }) =>
+                  isActive ? `${style.activeLink}` : ""
+                }
+              >
+                <CiLogout size={20} color="#EEE" />
+                Logout
+              </NavLink>
             </li>
           </ul>
         </div>
