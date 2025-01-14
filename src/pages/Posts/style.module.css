@@ -1,0 +1,73 @@
+.posts {
+    margin: 1rem 3rem 0 18rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.welcome h2 {
+    color: #eee;
+    font-size: 1.75rem;
+}
+
+.welcome p {
+    color: #B0B0B0;
+}
+
+.postsHeaderIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.postsIcon {
+    background-color: #2A303D;
+    padding: 0.25rem;
+    border-radius: 5px;
+    font-size: 30px;
+    color: #eee;
+}
+
+.postsInputs {
+    display: flex;
+    justify-content: end;
+}
+
+.postsInputs input {
+    background-color: #2A303D;
+    color: #B0B0B0;
+    border: none;
+    border-radius: 15px;
+    padding: 0.75rem;
+    margin: 1rem 0;
+}
+
+.postsContainer {
+    background-color: #2A303D;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.postsTable {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.postsTable th, td {
+    padding: 12px 16px;
+    text-align: left;
+}
+
+.postsTable th {
+    background-color: #212631;
+    color: #eee;
+}
+
+.postsTable td {
+    border-bottom: 1px solid #B0B0B0;
+    color: #B0B0B0;
+}

@@ -1,20 +1,32 @@
+import React, { useState } from "react";
 import style from "./style.module.css";
 import AlertSelectedTags from "../AlertSelectedTags/AlertSelectedTags";
 
-export default function AlertPopUp({isOpen, onClose}){
-    const addKeywordTag = () => {
-        
-    }
+export default function AlertPopUp({ isOpen, onClose }) {
+    const [keywords, setKeywords] = useState([]);
+    const [inputValue, setInputValue] = useState("");
 
-    if (!isOpen){
+    const addKeywordTag = (event) => {
+        if (event.key === "Enter" && inputValue.trim() !== "") {
+            const newKeywords = inputValue.split(',').map(keyword => keyword.trim()).filter(keyword => keyword !== "");
+            setKeywords([...keywords, ...newKeywords]);
+            setInputValue("");
+        }
+    };
+
+    const removeKeywordTag = (keywordToRemove) => {
+        setKeywords(keywords.filter(keyword => keyword !== keywordToRemove));
+    };
+
+    if (!isOpen) {
         return null;
     }
 
-    return(
+    return (
         <div className={style.alertPopUp}>
-                <div className={style.closeIcon} onClick={onClose}>
-                    ✖
-                </div>
+            <div className={style.closeIcon} onClick={onClose}>
+                ✖
+            </div>
 
             <div className={style.alertContent}>
                 <div className={style.alertContainer}>
@@ -23,30 +35,29 @@ export default function AlertPopUp({isOpen, onClose}){
                     <div className={style.alertConfigs}>
                         <div className={style.keywordsInput}>
                             <h2>Keyword</h2>
-                            <input type="text" placeholder="Ex: injection, sql, attack" onKeyDown={addKeywordTag} />
+                            <input
+                                type="text"
+                                placeholder="Ex: injection, sql, attack"
+                                value={inputValue}
+                                onChange={(e) => setInputValue(e.target.value)}
+                                onKeyDown={addKeywordTag}
+                            />
                         </div>
-                        
+
                         <div className={style.selectedTags}>
                             <h2>Tags</h2>
                             <div className={style.tagsContainer}>
-                                <AlertSelectedTags name={"injection"}/>
-                                <AlertSelectedTags name={"SQL"}/>
-                                <AlertSelectedTags name={"attack"}/>
-                                <AlertSelectedTags name={"CPF"}/>
-                                <AlertSelectedTags name={"email"}/>
-                                <AlertSelectedTags name={"password"}/>
-                                <AlertSelectedTags name={"hack"}/>
-                                <AlertSelectedTags name={"virus"}/>
+                                {keywords.map((keyword, index) => (
+                                    <AlertSelectedTags key={index} name={keyword} onClose={() => removeKeywordTag(keyword)} />
+                                ))}
                             </div>
                         </div>
                     </div>
                 </div>
-                        <button className={style.button}>
-                            Criar Alerta
-                        </button>
+                <button className={style.button}>
+                    Criar Alerta
+                </button>
             </div>
         </div>
-
     );
-
 }

@@ -1,12 +1,11 @@
 import style from "./style.module.css";
-import { IoIosNotificationsOutline } from "react-icons/io";
-import { CiUser } from "react-icons/ci";
 import { GoAlert } from "react-icons/go";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 import AlertPopUp from "../../components/AlertPopUp/AlertPopUp";
 import { useState } from "react";
+import Header from "../../components/Header/Header";
 
 
 export default function Alerts() {
@@ -21,22 +20,13 @@ export default function Alerts() {
 
   return (
     <div className={style.alerts}>
-      <header className={style.header}>
-        <div className={style.welcome}>
-          <h2>Alertas</h2>
-          <p>Crie alertas personalizados.</p>
-        </div>
-        <div className={style.alertsHeaderIcons}>
-          <IoIosNotificationsOutline className={style.alertsIcon} />
-          <CiUser className={style.alertsIcon} />
-        </div>
-      </header>
+      <Header pageName="Alertas" pageDescription="Crie alertas personalizados."/>
       <div className={style.alertsButtons}>
         <button>
           <GoAlert className={style.btnIcon} /> Meus alertas
         </button>
-        <button>
-          <IoIosAddCircleOutline className={style.btnIcon} onClick={handleOpenPopup} /> Criar novo alerta
+        <button onClick={handleOpenPopup}>
+          <IoIosAddCircleOutline className={style.btnIcon} /> Criar novo alerta
         </button>
       </div>
       <div className={style.alertsContainer}>

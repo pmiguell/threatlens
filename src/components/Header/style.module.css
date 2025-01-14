@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.welcome h2 {
+    color: #eee;
+    font-size: 1.75rem;
+}
+
+.welcome p {
+    color: #B0B0B0;
+}
+
+.headerIcons {
+    display: flex;
+    gap: 10px;
+}
+
+.headerIcon {
+    background-color: #2A303D;
+    padding: 0.25rem;
+    border-radius: 5px;
+    font-size: 30px;
+    color: #eee;
+}
