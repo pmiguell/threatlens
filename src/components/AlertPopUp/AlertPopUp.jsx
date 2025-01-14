@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import style from "./style.module.css";
 import AlertSelectedTags from "../AlertSelectedTags/AlertSelectedTags";
+import { useState } from "react";
 
+<<<<<<< HEAD
 export default function AlertPopUp({ isOpen, onClose }) {
     const [keywords, setKeywords] = useState([]);
     const [inputValue, setInputValue] = useState("");
@@ -18,6 +20,27 @@ export default function AlertPopUp({ isOpen, onClose }) {
         setKeywords(keywords.filter(keyword => keyword !== keywordToRemove));
     };
 
+=======
+
+export default function AlertPopUp({ isOpen, onClose }) {
+    const [keywordTags, setKeywordTags] = useState([]); // Estado para as tags
+
+    const addKeywordTag = (event) => {
+        if (event.key == 'Enter') {
+            let input = event.target;
+            let rawInput = input.value;
+            const keywords = rawInput.split(" ").join("").split(",");
+            input.value = '';
+
+            setKeywordTags((prevTags) => [...prevTags, ...keywords]);
+        }
+    }
+
+    const deleteTag = () => {
+        
+    }
+
+>>>>>>> 368cc0dee6e7fbeacad9bb8f5b86729a44a5767e
     if (!isOpen) {
         return null;
     }
@@ -47,8 +70,17 @@ export default function AlertPopUp({ isOpen, onClose }) {
                         <div className={style.selectedTags}>
                             <h2>Tags</h2>
                             <div className={style.tagsContainer}>
+<<<<<<< HEAD
                                 {keywords.map((keyword, index) => (
                                     <AlertSelectedTags key={index} name={keyword} onClose={() => removeKeywordTag(keyword)} />
+=======
+                                {keywordTags.map((keyword, index) => (
+                                    <AlertSelectedTags 
+                                        key={index} 
+                                        name={keyword}
+                                        onClose = {deleteTag} 
+                                    />
+>>>>>>> 368cc0dee6e7fbeacad9bb8f5b86729a44a5767e
                                 ))}
                             </div>
                         </div>
