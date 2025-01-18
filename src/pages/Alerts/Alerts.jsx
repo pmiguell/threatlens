@@ -1,95 +1,63 @@
 import style from "./style.module.css";
 import { GoAlert } from "react-icons/go";
 import { IoIosAddCircleOutline } from "react-icons/io";
-import { FaExternalLinkAlt } from "react-icons/fa";
-import { FaRegTrashAlt } from "react-icons/fa";
-import AlertPopUp from "../../components/AlertPopUp/AlertPopUp";
+import CreateAlertPopUp from "../../components/CreateAlertPopUp/CreateAlertPopUp";
+import MyAlertsPopUp from "../../components/MyAlertsPopUp/MyAlertsPopUp.jsx"
 import { useState } from "react";
 import Header from "../../components/Header/Header";
-
+import {alertsRecordList} from "./AlertsList.jsx"
+import AlertRecords from "../../components/AlertRecords/AlertRecords.jsx";
 
 export default function Alerts() {
-  const[isOpen, setIsOpen] = useState(false);
+
+  const[myAlertsIsOpen, setMyAlertsIsOpen] = useState(false);
+  const[createAlertIsOpen, setCreateAlertIsOpen] = useState(false);
   
-  const handleOpenPopup = ()=> {
-    setIsOpen(true);
-  };
-  const handleClosePopup = () => {
-    setIsOpen(false);
-  };
+  const[alertsRecord, setAlertsRecord] = useState(alertsRecordList);
+
+  const handleMyAlertsPopUp = () => {
+    setMyAlertsIsOpen(!myAlertsIsOpen);
+  }
+  const handleCreateAlertsPopUp = () => {
+    setCreateAlertIsOpen(!createAlertIsOpen);
+  }
+  const handleAlertRecordDelete = (recordToRemove) => {
+    setAlertsRecord(alertsRecord.filter(record => record !== recordToRemove));
+    //
+  }
+
 
   return (
     <div className={style.alerts}>
       <Header pageName="Alertas" pageDescription="Crie alertas personalizados."/>
       <div className={style.alertsButtons}>
-        <button>
+        <button onClick={handleMyAlertsPopUp}>
           <GoAlert className={style.btnIcon} /> Meus alertas
         </button>
-        <button onClick={handleOpenPopup}>
-<<<<<<< HEAD
+        <button onClick={handleCreateAlertsPopUp}>
           <IoIosAddCircleOutline className={style.btnIcon} /> Criar novo alerta
-=======
-          <IoIosAddCircleOutline className={style.btnIcon}/> Criar novo alerta
->>>>>>> 368cc0dee6e7fbeacad9bb8f5b86729a44a5767e
         </button>
       </div>
       <div className={style.alertsContainer}>
-        <div className={style.alert}>
-          <div className={style.alertHeader}>
-            <div className={style.alertHeaderInfo}>
-              <h3>Alerta Keyword "IP"</h3>
-              <p>25/08/2024 - 11:31</p>
-            </div>
-            <div className={style.trashIconContainer}>
-              <FaRegTrashAlt className={style.trashIcon}/>
-            </div>
-          </div>
-          <div className={style.alertDescription}>
-            <p>Post com keyword “IP” adicionado no banco de dados.</p>
-            <a>
-              <FaExternalLinkAlt /> 10003 - "Como obter o endereço IP de um..."
-            </a>
-          </div>
-        </div>
-        <div className={style.alert}>
-          <div className={style.alertHeader}>
-            <div className={style.alertHeaderInfo}>
-              <h3>Alerta Keyword "IP"</h3>
-              <p>25/08/2024 - 11:31</p>
-            </div>
-            <div className={style.trashIconContainer}>
-              <FaRegTrashAlt className={style.trashIcon}/>
-            </div>
-          </div>
-          <div className={style.alertDescription}>
-            <p>Post com keyword “IP” adicionado no banco de dados.</p>
-            <a>
-              <FaExternalLinkAlt /> 10003 - "Como obter o endereço IP de um..."
-            </a>
-          </div>
-        </div>
-        <div className={style.alert}>
-          <div className={style.alertHeader}>
-            <div className={style.alertHeaderInfo}>
-              <h3>Alerta Keyword "IP"</h3>
-              <p>25/08/2024 - 11:31</p>
-            </div>
-            <div className={style.trashIconContainer}>
-              <FaRegTrashAlt className={style.trashIcon}/>
-            </div>
-          </div>
-          <div className={style.alertDescription}>
-            <p>Post com keyword “IP” adicionado no banco de dados.</p>
-            <a>
-              <FaExternalLinkAlt/> 10003 - "Como obter o endereço IP de um..."
-            </a>
-          </div>
-        </div>
+        {alertsRecord.map((alertRecord, index) => (
+          <AlertRecords
+          id={index} 
+          alertRecord={alertRecord}
+          onDelete={() => handleAlertRecordDelete(alertRecord)}/>
+        ))}
+        
+     
       </div>
-      <AlertPopUp 
-        isOpen={isOpen}
-        onClose = {handleClosePopup}
+      <CreateAlertPopUp 
+        isOpen={createAlertIsOpen}
+        onClose = {handleCreateAlertsPopUp}
       />
+
+      <MyAlertsPopUp 
+        isOpen = {myAlertsIsOpen}
+        onClose = {handleMyAlertsPopUp}
+      />
+
     </div>
   );
 }

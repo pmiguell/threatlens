@@ -1,0 +1,44 @@
+.alert {
+    background-color: #2A303D;
+    border-radius: 10px;
+    width: 50rem;
+    height: 12rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.7rem 2rem;
+}
+
+.alertHeader {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+}
+
+.alertHeader h3 {
+    color: #fff;
+}
+
+.alertHeader p {
+    color: #646464;
+    margin-top: 0.5rem;
+}
+
+.trashIcon {
+    color: #d84747;
+    cursor: pointer;
+}
+
+.alertDescription {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.alertDescription p {
+    color: #fff;
+}
+
+.alertDescription a {
+    cursor: pointer;
+}
