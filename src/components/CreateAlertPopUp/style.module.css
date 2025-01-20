@@ -1,107 +1,133 @@
-.alertPopUp{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-40%, -50%);
-    width: 45%;
-    height: 90vh;
-    padding: 1rem 2rem 0 3rem;
-    border-radius: 10px;
-    background-color: #202020;
-    color: #FFF;
-    overflow-y: auto;
+.alertPopUp {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  width: 45%;
+  height: 90vh;
+  padding: 1rem 2rem 0 3rem;
+  border-radius: 10px;
+  background-color: #202020;
+  color: #fff;
+  overflow-y: auto;
 }
 .alertPopUp::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
   height: 8px;
   background-color: #aaa;
-  }
+}
 
 .alertPopUp::-webkit-scrollbar-thumb {
-    background: #747474;
-  }
-
-.closeIcon{
-    position: sticky;
-    text-align: right;
-    cursor: pointer;
+  background: #747474;
 }
 
-.alertContainer{
-    width: 80%;
-    margin: 1rem auto;
+.closeIcon {
+  position:sticky;
+  top: 0;
+  text-align: right;
+  cursor: pointer;
 }
-.alertContent{  
+
+.alertContainer { 
     min-height: 95%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 }
 
-
-.alertContainer h1{
+.alertContainer h1 { 
     text-align: center;
     font-size: 2rem;
     font-weight: 500;
     margin-bottom: 3rem;
 }
 
+.alertContent {
+  width: 80%;
+  margin: 1rem auto;
+}
 
-.alertConfigs h2{
+.container{
+    margin-bottom: 2rem;
+}
+
+.container h2{ 
+    margin-bottom: 1rem;
     font-weight: 400;
-    margin-bottom: 1.3rem;
 }
 
-.keywordsInput{
-    margin-bottom: 3rem;
-    width: 100%;
-}
-
-input{
-    width: 100%;
-    height: 3rem;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 5px;
-    outline: none;
-    resize: none;
-    background-color: #2A303D;
-    color: #FFF;
-    font-size: 16px;
-    font-family: inherit;
-
+input {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+  background-color: #2126317e;
+  color: #fff;
+  font-size: 14px;
+  font-family: inherit;
 }
 
 .tagsContainer{
-    min-height: 10px;
+    max-height: 70px;
+    overflow-y: auto;
+    margin-top: 1rem;
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
 }
-.deadline{
-    margin-top: 3rem;
-}
-.deadline h3{
-    font-weight: 400;
-    margin-bottom: 1rem;
+
+
+.tagsContainer::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  border-radius: 10px;
 }
 
-.deadline input{
-    margin-bottom: 0.5rem;
+.tagsContainer::-webkit-scrollbar-thumb {
+  background: #2b2b2b;
 }
 
-.deadline label{
-    font-size: 14px;
-    margin-left: 0.5rem;
+.deadlineContainer input[type="date"]:disabled {
+    background-color: #666b75;
 }
 
-.button{
-    min-width: 80%;
-    min-height: 3rem;
-    margin: 2rem auto;
-    border-radius: 10px;
-    background-color: #6558FF;
-    color: #FFF;
-    font-size: 20px;
-    
+
+.deadlineCheckbox {
+  margin-top: 0.5rem;
+    display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.deadlineCheckbox input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.deadlineCheckbox label {
+  font-size: 14px;
+  margin-left: 0.5rem;
+  color: #a8a8a8;
+  cursor: pointer;
+}
+
+.button {
+  width: 80%;
+  min-height: 3rem;
+  margin: 1rem 0 2rem 0;
+  border-radius: 10px;
+  background-color: #6558ff;
+  color: #fff;
+  font-size: 18px;
+  border: none;
+  transition: 0.7s;
+}
+
+.button:hover{
+    background-color: #5546ff;
 }

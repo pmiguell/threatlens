@@ -24,9 +24,11 @@
 
 .closeIcon{
     position: sticky;
+    top: 0;
     text-align: right;
     cursor: pointer;
 }
+
 .alertContainer{
   width: 100%;
   margin: 1rem auto;
