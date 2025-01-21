@@ -2,37 +2,10 @@
     margin: 1rem 3rem 0 18rem;
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.welcome h2 {
-    color: #eee;
-    font-size: 1.75rem;
-}
-
-.welcome p {
-    color: #B0B0B0;
-}
-
-.postsHeaderIcons {
-    display: flex;
-    gap: 10px;
-}
-
-.postsIcon {
-    background-color: #2A303D;
-    padding: 0.25rem;
-    border-radius: 5px;
-    font-size: 30px;
-    color: #eee;
-}
-
 .postsInputs {
     display: flex;
     justify-content: end;
+    margin-top: 2rem;
 }
 
 .postsInputs input {

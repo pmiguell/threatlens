@@ -1,0 +1,40 @@
+.myAccount {
+    margin: 1rem 3rem 0 18rem;
+}
+
+.myAccountContainer {
+    width: 50%;
+}
+
+.myAccountForm {
+    border-bottom: none;
+    align-items: start;
+    margin-top: 4rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.formGroup label {
+    color: #fff;
+    font-size: 18px;
+}
+
+.formGroup input {
+    color: #B0B0B0;
+    width: 100%;
+}
+
+.editBtn {
+    background-color: #6558FF;
+    color: #FFF;
+    padding: 0.75rem 2.5rem;
+    border-radius: 15px;
+    border: none;
+    float: right;
+    cursor: pointer;
+}
