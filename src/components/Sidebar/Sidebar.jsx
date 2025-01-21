@@ -10,13 +10,11 @@ import Navigation from "../Navigation/Navigation";
 export default function Sidebar() {
   return (
     <aside className={style.sidebar}>
-      <header>
-        <h1 className={style.title}>
-          Threat<span className={style.highlight}>Lens</span>
-        </h1>
-      </header>
+      <h1 className={style.title}>
+        Threat<span className={style.highlight}>Lens</span>
+      </h1>
 
-      <Navigation/>
+      <Navigation />
     </aside>
   );
 }
