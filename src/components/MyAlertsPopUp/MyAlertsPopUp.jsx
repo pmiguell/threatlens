@@ -1,11 +1,11 @@
 import style from "./MyAlertsPopUp.module.css";
 import React, { useState } from "react";
 import AlertCard from "../AlertCard/AlertCard";
-// import {alerts} from "./MyAlerts.jsx"
+import MyAlerts from "./MyAlerts.json"
 import CreateAlertPopUp from "../CreateAlertPopUp/CreateAlertPopUp.jsx"
 
 export default function MyAlertPopUp({ isOpen, onClose}) {
-    const [myAlerts,setMyAlerts] = useState(alerts);
+    const [myAlerts, setMyAlerts] = useState(MyAlerts.Alerts);
 
 
     if (!isOpen) {
