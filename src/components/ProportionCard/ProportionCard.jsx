@@ -1,4 +1,4 @@
-import style from "./style.module.css";
+import style from "./ProportionCard.module.css";
 
 
 export default function ProportionCard(props) {

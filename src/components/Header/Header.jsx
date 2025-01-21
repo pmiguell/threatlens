@@ -1,4 +1,4 @@
-import style from './style.module.css';
+import style from './Header.module.css';
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
 

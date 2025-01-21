@@ -1,7 +1,7 @@
+import style from "./PolarChart.module.css";
 import { PolarArea } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 import 'chart.js/auto';
-import style from "./style.module.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 

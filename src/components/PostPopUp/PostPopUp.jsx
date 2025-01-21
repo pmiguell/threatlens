@@ -1,4 +1,4 @@
-import style from "./style.module.css";
+import style from "./PostPopUp.module.css";
 import PostAttribute from "../PostAttribute/PostAttribute";
 
 export default function PostPopUp({ isOpen, onClose, id, category, created_at, ioc, keyword, relevant, fulltext }) {

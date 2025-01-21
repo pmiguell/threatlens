@@ -1,5 +1,5 @@
+import style from "./CreateAlertPopUp.module.css";
 import React, { useState } from "react";
-import style from "./style.module.css";
 import AlertSelectedTags from "../AlertSelectedTags/AlertSelectedTags";
 
 export default function CreateAlertPopUp({ isOpen, onClose, alertInfo }) {

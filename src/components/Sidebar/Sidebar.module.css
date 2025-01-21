@@ -1,0 +1,19 @@
+.sidebar {
+  position: fixed;
+  left: 2.5vh;
+  background-color: #2a303d;
+  width: 15rem;
+  height: 95%;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+}
+
+.title {
+  font-size: 2rem;
+  color: #eee;
+  text-align: center;
+}
+
+.highlight {
+  color: #6558ff;
+}

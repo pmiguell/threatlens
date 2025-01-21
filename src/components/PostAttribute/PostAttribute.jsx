@@ -1,4 +1,4 @@
-import style from "./style.module.css"
+import style from "./PostAttribute.module.css"
 
 export default function PostAttributes(props){
     return(

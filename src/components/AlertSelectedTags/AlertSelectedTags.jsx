@@ -1,5 +1,5 @@
+import style from "./AlertSelectedTags.module.css";
 import React from "react";
-import style from "./style.module.css";
 
 export default function AlertSelectedTags({name, onClose, editing}) {
     return (

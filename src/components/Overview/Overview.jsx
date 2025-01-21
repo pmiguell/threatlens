@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import FilterBar from "../FilterBar/FilterBar";
-import style from "./style.module.css";
+import style from "./Overview.module.css";
 import ProportionCard from "../ProportionCard/ProportionCard";
 import RelevantPostsTable from "../RelevantPostsTable/RelevantPostsTable";
 import BarChart from "../BarChart/BarChart";

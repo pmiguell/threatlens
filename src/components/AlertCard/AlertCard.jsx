@@ -1,6 +1,6 @@
+import style from "./AlertCard.module.css"
 import React, { useState } from "react";
 import AlertSelectedTags from "../AlertSelectedTags/AlertSelectedTags"
-import style from "./style.module.css"
 import { FaRegEdit } from "react-icons/fa";
 import { IoTrashOutline } from "react-icons/io5";
 

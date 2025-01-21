@@ -1,4 +1,4 @@
-import style from "./style.module.css";
+import style from "./Alerts.module.css";
 import { GoAlert } from "react-icons/go";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import CreateAlertPopUp from "../../components/CreateAlertPopUp/CreateAlertPopUp";
@@ -23,7 +23,7 @@ export default function Alerts() {
   }
   const handleAlertRecordDelete = (recordToRemove) => {
     setAlertsRecord(alertsRecord.filter(record => record !== recordToRemove));
-    //
+    
   }
 
 

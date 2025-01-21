@@ -1,7 +1,7 @@
+import style from "./MyAlertsPopUp.module.css";
 import React, { useState } from "react";
 import AlertCard from "../AlertCard/AlertCard";
-import style from "./style.module.css";
-import {alerts} from "./MyAlerts.jsx"
+// import {alerts} from "./MyAlerts.jsx"
 import CreateAlertPopUp from "../CreateAlertPopUp/CreateAlertPopUp.jsx"
 
 export default function MyAlertPopUp({ isOpen, onClose}) {

@@ -1,5 +1,5 @@
+import style from "./RelevantPostsTable.module.css";
 import { useState } from "react";
-import style from "./style.module.css";
 import PostPopUp from "../PostPopUp/PostPopUp";
 
 export default function RelevantPostsTable({ mostRelevantPosts }) {

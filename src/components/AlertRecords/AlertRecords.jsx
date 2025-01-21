@@ -1,4 +1,4 @@
-import style from "./style.module.css"
+import style from "./AlertRecords.module.css"
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 

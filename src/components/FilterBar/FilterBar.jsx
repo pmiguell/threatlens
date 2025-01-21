@@ -1,6 +1,6 @@
+import style from "./FilterBar.module.css";
 import { useState } from "react";
 import { MdFilterList } from "react-icons/md";
-import style from "./style.module.css";
 
 export default function FilterBar({ setFilter }) {
   const [activeFilter, setActiveFilter] = useState("Tudo");
