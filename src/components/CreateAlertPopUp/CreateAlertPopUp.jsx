@@ -1,7 +1,7 @@
 import style from "./CreateAlertPopUp.module.css";
 import React, { useState } from "react";
 import AlertSelectedTags from "../AlertSelectedTags/AlertSelectedTags";
-import DoubleRangeSlider from "../DoubleRangeSlider/DoubleRangeSlider";
+import RangeSlider from "../RangeSlider/RangeSlider";
 
 export default function CreateAlertPopUp({ isOpen, onClose, alertInfo }) {
     const [keywords, setKeywords] = useState([]);
@@ -74,7 +74,7 @@ export default function CreateAlertPopUp({ isOpen, onClose, alertInfo }) {
 
                     <div className={style.container}>
                         <h2>Intervalo de relevância:</h2>
-                        <DoubleRangeSlider />
+                        <RangeSlider />
                     </div>
 
                     <div className={style.container}>
