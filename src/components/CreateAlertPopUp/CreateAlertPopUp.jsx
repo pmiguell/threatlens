@@ -1,6 +1,7 @@
 import style from "./CreateAlertPopUp.module.css";
 import React, { useState } from "react";
 import AlertSelectedTags from "../AlertSelectedTags/AlertSelectedTags";
+import DoubleRangeSlider from "../DoubleRangeSlider/DoubleRangeSlider";
 
 export default function CreateAlertPopUp({ isOpen, onClose, alertInfo }) {
     const [keywords, setKeywords] = useState([]);
@@ -59,6 +60,26 @@ export default function CreateAlertPopUp({ isOpen, onClose, alertInfo }) {
                     <div className={style.container}>
                         <h2>Nome</h2>
                         <input type="text" placeholder="Ex: Alerta keyword 'IP'" />
+                    </div>
+
+                    <div className={style.container}>
+                        <h2>Fonte de busca:</h2>
+                        <input type="text" placeholder="Ex: https://www.twitter.com" />
+                    </div>
+
+                    <div className={style.container}>
+                        <h2>Email para envio de alertas:</h2>
+                        <input type="email" placeholder="Ex: johndoe@email.com" />
+                    </div>
+
+                    <div className={style.container}>
+                        <h2>Intervalo de relevância:</h2>
+                        <DoubleRangeSlider />
+                    </div>
+
+                    <div className={style.container}>
+                        <h2>Periodicidade do alerta:</h2>
+                        <input type="email" placeholder="Ex: 5 dias" />
                     </div>
 
                     <div>

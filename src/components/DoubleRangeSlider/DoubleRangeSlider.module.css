@@ -1,0 +1,54 @@
+/* DoubleRangeSlider.module.css */
+
+.sliderContainer {
+    width: 100%;
+    position: relative;
+    margin-bottom: 3.5rem;
+  }
+  
+  .slider {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    position: relative;
+  }
+  
+  .thumb {
+    width: 20px;
+    height: 20px;
+    background: #6558FF; /* Cor das bolas */
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    top: 50%; /* Centraliza verticalmente */
+    transform: translateY(-50%); /* Ajusta a posição vertical */
+    position: relative; /* Permite posicionar o valor abaixo da bola */
+  }
+  
+  .thumbValue {
+    position: absolute;
+    top: 25px; /* Posiciona o valor abaixo da bola */
+    left: 50%;
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    font-size: 12px;
+    color: #6558FF; /* Cor do texto */
+    white-space: nowrap; /* Evita que o texto quebre em várias linhas */
+  }
+  
+  .track {
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+  }
+  
+  /* Estilo da faixa entre as duas bolas */
+  .track-1 {
+    background: #6558FF; /* Cor azul para o espaço entre as bolas */
+  }
+  
+  /* Estilo da faixa fora das bolas */
+  .track-0,
+  .track-2 {
+    background: #747474; /* Cor cinza para as áreas externas */
+  }
