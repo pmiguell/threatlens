@@ -7,6 +7,7 @@ import BarChart from "../BarChart/BarChart";
 import PieChart from "../PieChart/PieChart";
 import PolarChart from "../PolarChart/PolarChart";
 import DoughnutChart from "../DoughnutChart/DoughnutChart"
+import WordCloud from "../WordCloud/WordCloud";
 import Header from "../Header/Header";
 
 export default function Overview() {
@@ -66,6 +67,65 @@ export default function Overview() {
     ],
   };
 
+  const palavras = [
+    { text: 'phishing', value: 10 },
+    { text: 'ransomware', value: 15 },
+    { text: 'trojan', value: 3 },
+    { text: 'malware', value: 1 },
+    { text: 'botnet', value: 62 },
+    { text: 'spyware', value: 7 },
+    { text: 'adware', value: 5 },
+    { text: 'rootkit', value: 6 },
+    { text: 'exploit', value: 11 },
+    { text: 'backdoor', value: 9 },
+    { text: 'keylogger', value: 7 },
+    { text: 'zero-day', value: 13 },
+    { text: 'DDoS', value: 14 },
+    { text: 'firewall', value: 10 },
+    { text: 'encryption', value: 12 },
+    { text: 'hashing', value: 8 },
+    { text: 'token', value: 7 },
+    { text: 'cyberattack', value: 10 },
+    { text: 'breach', value: 9 },
+    { text: 'vulnerability', value: 11 },
+    { text: 'payload', value: 6 },
+    { text: 'social engineering', value: 8 },
+    { text: 'brute force', value: 7 },
+    { text: 'SQL injection', value: 9 },
+    { text: 'XSS', value: 6 },
+    { text: 'CSRF', value: 5 },
+    { text: 'session hijacking', value: 7 },
+    { text: 'VPN', value: 8 },
+    { text: '2FA', value: 7 },
+    { text: 'MFA', value: 6 },
+    { text: 'honeypot', value: 5 },
+    { text: 'SIEM', value: 6 },
+    { text: 'IDS', value: 5 },
+    { text: 'IPS', value: 5 },
+    { text: 'threat intelligence', value: 10 },
+    { text: 'incident response', value: 9 },
+    { text: 'forensics', value: 7 },
+    { text: 'mitigation', value: 8 },
+    { text: 'cybercrime', value: 9 },
+    { text: 'APT', value: 6 },
+    { text: 'penetration test', value: 10 },
+    { text: 'red team', value: 7 },
+    { text: 'blue team', value: 7 },
+    { text: 'bug bounty', value: 6 },
+    { text: 'hash', value: 5 },
+    { text: 'authentication', value: 12 },
+    { text: 'authorization', value: 10 },
+    { text: 'access control', value: 9 },
+    { text: 'JWT', value: 8 },
+    { text: 'TLS', value: 6 },
+    { text: 'SSL', value: 6 },
+    { text: 'SOC', value: 7 },
+    { text: 'IAM', value: 6 },
+    { text: 'obfuscation', value: 6 },
+    { text: 'reconnaissance', value: 7 },
+    { text: 'threat modeling', value: 8 },
+  ];
+
   const [filter, setFilter] = useState("Tudo");
   const [displayedData, setDisplayedData] = useState(allData);
 
@@ -108,6 +168,7 @@ export default function Overview() {
         </div>
       </div>
       <BarChart />
+      <WordCloud palavras={palavras} />
     </div>
   );
 }

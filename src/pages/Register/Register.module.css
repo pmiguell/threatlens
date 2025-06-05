@@ -1,5 +1,5 @@
 
-.loginContainer {
+.registerContainer {
     position: absolute;
     transform: translate(-50%, -50%);
     top: 50%;
@@ -24,16 +24,14 @@ p {
     font-size: 1rem;
 }
 
-form {
+.registerForm {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #B0B0B0;
 }
 
-form input {
+.registerForm input {
     width: 25rem;
     height: 3rem;
     border-radius: 15px;
@@ -44,11 +42,11 @@ form input {
     font-size: 1rem;
 }
 
-form input::placeholder {
+.registerForm input::placeholder {
     color: #eee;
 }
 
-form input[type="submit"] {
+.registerForm input[type="submit"] {
     font-weight: bold;
     font-size: 1rem;
     color: #eee;
@@ -57,7 +55,7 @@ form input[type="submit"] {
     padding: 0;
 }
 
-form input[type="submit"]:hover {
+.registerForm input[type="submit"]:hover {
     background-color: rgb(89, 74, 255);
 }
 
@@ -69,4 +67,15 @@ a {
 
 a:hover {
     color: #B0B0B0;
+}
+
+@media (max-width: 425px) {
+    .registerContainer {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    form input {
+        width: 100%;
+    }
 }

@@ -23,17 +23,15 @@ p {
     font-size: 1rem;
 }
 
-form {
+.loginForm {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px solid #B0B0B0;
 }
 
-form input {
-    width: 25rem;
+.loginForm input {
+    width: 100%;
     height: 3rem;
     border-radius: 15px;
     border: none;
@@ -43,11 +41,11 @@ form input {
     font-size: 1rem;
 }
 
-form input::placeholder {
+.loginForm input::placeholder {
     color: #eee;
 }
 
-form input[type="submit"] {
+.loginForm input[type="submit"] {
     font-weight: bold;
     font-size: 1rem;
     color: #eee;
@@ -56,16 +54,52 @@ form input[type="submit"] {
     padding: 0;
 }
 
-form input[type="submit"]:hover {
+.loginForm input[type="submit"]:hover {
     background-color: rgb(89, 74, 255);
 }
 
-a {
+.loginOptions a {
     text-decoration: none;
     color: #eee;
     font-size: 1rem;
 }
 
-a:hover {
+.loginOptions a:hover {
     color: #B0B0B0;
+}
+
+.loginOptions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rememberMe {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #eee;
+}
+
+.rememberMe input {
+    width: 1rem;
+    cursor: pointer;
+}
+
+@media (max-width: 425px) {
+    .loginContainer {
+        width: 100%;
+        padding: 0 1rem;
+    }
+
+    .loginForm input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .loginOptions {
+        flex-direction: column;
+        gap: 1rem;
+    }
 }
