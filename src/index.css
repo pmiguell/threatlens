@@ -9,3 +9,7 @@ body {
   min-height: 100vh;
   background-color: #212631;
 }
+
+body.light {
+  background-color: #F9F9FB;
+}

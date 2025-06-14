@@ -17,3 +17,11 @@
 .highlight {
   color: #6558ff;
 }
+
+:global(body.light) .sidebar{
+  background-color: #E6E9F0;
+}
+
+:global(body.light) .title {
+  color: #313131;
+}

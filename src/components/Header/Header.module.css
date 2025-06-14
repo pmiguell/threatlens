@@ -16,6 +16,7 @@
 
 .headerIcons {
     display: flex;
+    align-items: center;
     gap: 10px;
 }
 
@@ -25,4 +26,62 @@
     border-radius: 5px;
     font-size: 30px;
     color: #eee;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 42px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2A303D;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 3px;
+  background-color: #FFF;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #d6d6d6;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+:global(body.light) .welcome h2 {
+  color: #1E1E2F;
+}
+
+:global(body.light) .welcome p {
+  color: #5B5B6B;
+}
+
+:global(body.light) .headerIcon {
+  color: #2A303D;
+  background-color: #EEEEEE;
 }

@@ -43,7 +43,7 @@ export default function RelevantPostsTable({ mostRelevantPosts }) {
                       handleOpenPopup(post); // Passa o post selecionado
                     }}
                   >
-                    Visualizar
+                    Analisar
                   </a>
                 </td>
               </tr>

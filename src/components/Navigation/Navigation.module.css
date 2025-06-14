@@ -1,3 +1,11 @@
-    .navigation {
-    margin-top: 3rem;
-  }
+.navigation {
+  margin-top: 3rem;
+}
+
+.navIcon {
+  color: #eee;
+}
+
+:global(body.light) .navIcon {
+  color: #2A303D;
+}

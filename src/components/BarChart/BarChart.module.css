@@ -7,4 +7,14 @@
 .description {
     color: #eee;
     margin-bottom: 2rem;
+    font-size: 22px;
+}
+
+:global(body.light) .description {
+  color: #2A303D;
+}
+
+:global(body.light) .barChartContainer {
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.300);
 }

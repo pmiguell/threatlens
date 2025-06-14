@@ -1,6 +1,7 @@
 .description {
     color: #eee;
     margin-bottom: 2rem;
+    font-size: 22px;
 }
 
 .tableContainer {
@@ -78,3 +79,31 @@ table a {
 .rate {
     color: #FF2E2E;
 }
+
+:global(body.light) .tableContainer {
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.300);
+}
+
+:global(body.light) .description {
+  color: #2A303D;
+}
+
+:global(body.light) thead {
+  color: #444444;
+  background-color: #EEEEEE;
+}
+
+:global(body.light) tbody tr:nth-child(even) {
+    background-color: #EEEEEE;
+}
+
+:global(body.light) tbody tr{
+    color: #646464;
+}
+
+:global(body.light) .tableScroll{
+    scrollbar-color: #EEEEEE #B0B0B0;
+}
+
+

@@ -152,7 +152,7 @@ export default function Overview() {
 
   return (
     <div className={style.app}>
-      <Header pageName="Dashboard" pageDescription="Olá, administrador! Bem-vindo de volta." />
+      <Header pageName="Dashboard" pageDescription="Olá! Bem-vindo de volta." />
       <FilterBar setFilter={setFilter} />
       <div className={style.infosContainer}>
         <div className={style.infosContainerCol1}>

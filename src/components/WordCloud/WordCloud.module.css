@@ -9,6 +9,7 @@
 .description {
     color: #eee;
     margin-bottom: 2rem;
+    font-size: 22px;
 }
 
 .wordCloudComponent {
@@ -16,4 +17,32 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.word {
+  font-family: Arial, sans-serif;
+  fill: #eee;
+  transition: fill 0.3s;
+}
+
+.word:hover {
+  fill: #6558ff;
+  cursor: pointer;
+}
+
+:global(body.light) .description {
+  color: #2A303D;
+}
+
+:global(body.light) .wordCloudContainer {
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.300);
+}
+
+:global(body.light) .word {
+  fill: #646464;
+}
+
+:global(body.light) .word:hover {
+  fill: #6558ff;
 }

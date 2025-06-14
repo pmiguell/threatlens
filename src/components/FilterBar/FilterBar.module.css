@@ -49,3 +49,20 @@
     height: 1.75rem;
     border-radius: 15px;
 }
+
+:global(body.light) .periodBar {
+  background-color: #EEEEEE;
+}
+
+:global(body.light) .periodBar button {
+  color: #1E1E2F;
+}
+
+:global(body.light) .intervalBtn {
+  background-color: #EEEEEE;
+  color: #2A303D;
+}
+
+:global(body.light) .activeBtn {
+    color: #eee !important;
+}

@@ -10,4 +10,14 @@
     color: #eee;
     margin-bottom: 2rem;
     text-align: center;
+    font-size: 22px;
+}
+
+:global(body.light) .description {
+  color: #1E1E2F;
+}
+
+:global(body.light) .doughnutChartContainer {
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.300);
 }

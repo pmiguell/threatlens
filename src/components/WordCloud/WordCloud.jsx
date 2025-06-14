@@ -38,14 +38,13 @@ const WordCloud = ({ palavras, width = 600, height = 400 }) => {
         .data(words)
         .enter()
         .append("text")
-        .style("font-size", (d) => `${d.size}px`)
-        .style("font-family", "Arial")
-        .style("fill", "#eee")
+        .attr("class", style.word) // adiciona classe do CSS
         .attr("text-anchor", "middle")
         .attr(
           "transform",
           (d) => `translate(${d.x}, ${d.y}) rotate(${d.rotate})`
         )
+        .style("font-size", (d) => `${d.size}px`)
         .text((d) => d.text);
     }
   }, [palavras, width, height]);
@@ -54,7 +53,7 @@ const WordCloud = ({ palavras, width = 600, height = 400 }) => {
     <div className={style.wordCloudContainer}>
       <h2 className={style.description}>Nuvem de palavras</h2>
       <div className={style.wordCloudComponent}>
-        <svg ref={svgRef} width={width} height={height}></svg>;
+        <svg ref={svgRef} width={width} height={height}></svg>
       </div>
     </div>
   );
