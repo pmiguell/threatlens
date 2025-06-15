@@ -42,3 +42,20 @@
 .alertDescription a {
     cursor: pointer;
 }
+
+:global(body.light) .alert {
+  background-color: #FFFFFF;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.300);
+}
+
+:global(body.light) .alertHeader h3 {
+  color: #2A303D;
+}
+
+:global(body.light) .alertDescription p {
+  color: #2A303D;
+}
+
+:global(body.light) .alertDescription a {
+  color: #2A303D;
+}

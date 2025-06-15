@@ -131,3 +131,25 @@ input {
 .button:hover{
     background-color: #5546ff;
 }
+
+:global(body.light) .alertPopUp {
+    background-color: #E6E9F0;
+}
+
+:global(body.light) input {
+    background-color: #EEEEEE;
+    border: 1px solid #ccc;
+    color: #1E1E2F;
+}
+
+:global(body.light) .container h2 {
+    color: #1E1E2F;
+}
+
+:global(body.light) .alertContainer h1 {
+    color: #1E1E2F;
+}
+
+:global(body.light) .closeIcon{
+    color: #1E1E2F;
+}

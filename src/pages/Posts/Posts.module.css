@@ -1,51 +1,60 @@
 .posts {
-    margin: 1rem 3rem 0 18rem;
+  margin: 1rem 3rem 0 18rem;
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .welcome h2 {
-    color: #eee;
-    font-size: 1.75rem;
+  color: #eee;
+  font-size: 1.75rem;
 }
 
 .welcome p {
-    color: #B0B0B0;
+  color: #b0b0b0;
 }
 
 .postsHeaderIcons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .postsIcon {
-    background-color: #2A303D;
-    padding: 0.25rem;
-    border-radius: 5px;
-    font-size: 30px;
-    color: #eee;
+  background-color: #2a303d;
+  padding: 0.25rem;
+  border-radius: 5px;
+  font-size: 30px;
+  color: #eee;
 }
 
 .postsInputs {
-    display: flex;
-    justify-content: end;
+  display: flex;
+  justify-content: end;
 }
 
 .postsInputs input {
-    background-color: #2A303D;
-    color: #B0B0B0;
-    border: none;
-    border-radius: 15px;
-    padding: 0.75rem;
-    margin: 1rem 0;
+  background-color: #2a303d;
+  color: #b0b0b0;
+  border: none;
+  border-radius: 15px;
+  padding: 0.75rem;
+  margin: 1rem 0;
 }
 
 .postsContainer {
-    background-color: #2A303D;
-    border-radius: 15px;
-    padding: 1rem;
+  background-color: #2a303d;
+  border-radius: 15px;
+  padding: 1rem;
+}
+
+:global(body.light) .postsInputs input {
+  background-color: #eee;
+}
+
+:global(body.light) .postsContainer {
+  background-color: #ffffff;
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
 }

@@ -24,9 +24,20 @@
     border-radius: 5px;
     height: 2rem;
     outline: none;
-
 }
 
 .attribute input:hover{
     background-color: #2C2C2C;
+}
+
+:global(body.light) .attribute label {
+    color: #2A303D;
+}
+
+:global(body.light) .attribute input {
+    color: #646464;
+}
+
+:global(body.light) .attribute input:hover {
+    background-color: #EEEEEE;
 }

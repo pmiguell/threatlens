@@ -1,12 +1,26 @@
-.tag{
-    background-color: #2A303D;
-    width: fit-content;
-    display: flex;
-    gap: 1rem;
-    padding: 0.2rem 0.75rem;
-    border-radius: 5px;
+.tag {
+  background-color: #2a303d;
+  width: fit-content;
+  display: flex;
+  gap: 1rem;
+  padding: 0.2rem 0.75rem;
+  border-radius: 5px;
+  margin-bottom: 0.25rem;
 }
 
-.closeIcon{
-    cursor: pointer;
+.closeIcon {
+  cursor: pointer;
+}
+
+:global(body.light) .tag {
+  background-color: #fff;
+  box-shadow: 1px 1px 5px #0000001a;
+}
+
+:global(body.light) .tag p {
+  color: #1e1e2f;
+}
+
+:global(body.light) .closeIcon {
+  color: #1e1e2f;
 }

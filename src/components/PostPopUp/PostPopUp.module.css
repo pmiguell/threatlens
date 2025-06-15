@@ -44,9 +44,9 @@
 }
 
 
-.postBody{
+.postBody p{
     color: #d5d5d5;
-    line-height: 2rem;
+    line-height: 1.75rem;
 }
 
 .overlay {
@@ -59,4 +59,18 @@
     z-index: 999; /* Certifique-se de que a sobreposição esteja abaixo do popup */
 }
   
+:global(body.light) .postPopUp {
+    background-color: #E6E9F0;
+}
 
+:global(body.light) .postContainer h1 {
+    color: #2A303D;
+}
+
+:global(body.light) .postBody p {
+    color: #2A303D;
+}
+
+:global(body.light) .topIcons {
+    color: #2A303D;
+}

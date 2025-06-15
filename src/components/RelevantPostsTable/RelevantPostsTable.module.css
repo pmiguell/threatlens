@@ -98,7 +98,7 @@ table a {
     background-color: #EEEEEE;
 }
 
-:global(body.light) tbody tr{
+:global(body.light) tbody tr {
     color: #646464;
 }
 

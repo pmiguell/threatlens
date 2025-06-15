@@ -1,6 +1,6 @@
 .postsTable {
     border-collapse: separate;
-    border-spacing: 0 8px;
+    border-spacing: 0px;
     width: 100%;
     table-layout: fixed;
 }
@@ -16,6 +16,22 @@
 }
 
 .postsTable td {
-    border-bottom: 1px solid #B0B0B0;
     color: #B0B0B0;
+}
+
+.postsTable tr:nth-child(odd) {
+    background-color: #212631;
+}
+
+:global(body.light) .postsTable th {
+  color: #444444;
+  background-color: #EEEEEE;
+}
+
+:global(body.light) .postsTable tr:nth-child(odd) {
+    background-color: #EEE;
+}
+
+:global(body.light) .postsTable td {
+  color: #646464;
 }

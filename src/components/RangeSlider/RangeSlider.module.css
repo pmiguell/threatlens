@@ -47,3 +47,8 @@
   background: #6558FF;
   border-radius: 5px;
 }
+
+:global(body.light) .track {
+    background: #EEEEEE;
+    border: 1px solid #ccc;
+}
