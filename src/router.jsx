@@ -6,6 +6,7 @@ import Register from "./pages/Register/Register";
 import Alerts from "./pages/Alerts/Alerts";
 import Posts from "./pages/Posts/Posts";
 import MyAccount from "./pages/MyAccount/MyAccount";
+import VerifyCode from "./pages/VerifyCode/VerifyCode";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
     path: "/register", 
     element: <Register />,
   },
+  {
+    path: "/verify",
+    element: <VerifyCode />
+  }
 ]);
 
 export default router;
