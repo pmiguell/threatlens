@@ -13,3 +13,13 @@ body {
 body.light {
   background-color: #F9F9FB;
 }
+
+html, body, #root {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+@media (max-width: 1200px) {}
+@media (max-width: 1024px) {}
+@media (max-width: 768px) {}
+@media (max-width: 480px) {}

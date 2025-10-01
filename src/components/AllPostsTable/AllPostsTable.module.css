@@ -8,6 +8,7 @@
 .postsTable th, td {
     padding: 12px 16px;
     text-align: left;
+    word-break: break-word;
 }
 
 .postsTable th {
@@ -34,4 +35,10 @@
 
 :global(body.light) .postsTable td {
   color: #646464;
+}
+
+@media (max-width: 768px) {
+  .postsTable th, .postsTable td {
+    padding: 10px 12px;
+  }
 }

@@ -63,3 +63,18 @@
     gap: 2rem;
 }
 
+@media (max-width: 1024px) {
+  .alerts {
+    margin: 1rem;
+  }
+  .alertsButtons {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .alertsButtons button {
+    width: 100%;
+  }
+}
+

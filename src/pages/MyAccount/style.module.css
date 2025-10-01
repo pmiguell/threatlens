@@ -38,3 +38,19 @@
     float: right;
     cursor: pointer;
 }
+
+@media (max-width: 1024px) {
+  .myAccount {
+    margin: 1rem;
+  }
+  .myAccountContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .editBtn {
+    width: 100%;
+    float: none;
+  }
+}

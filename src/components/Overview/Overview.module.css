@@ -34,4 +34,11 @@
     margin-top: 4rem;
     display: flex;
     gap: 2rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .app {
+    margin: 1rem;
+  }
 }

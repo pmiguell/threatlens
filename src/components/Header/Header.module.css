@@ -85,3 +85,21 @@ input:checked + .slider:before {
   color: #2A303D;
   background-color: #EEEEEE;
 }
+
+.menuButton {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #eee;
+  font-size: 28px;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .menuButton {
+    display: inline-flex;
+  }
+}

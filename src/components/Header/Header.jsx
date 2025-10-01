@@ -1,9 +1,12 @@
 import style from './Header.module.css';
 import { IoIosNotificationsOutline } from "react-icons/io";
 import { CiUser } from "react-icons/ci";
+import { FiMenu } from "react-icons/fi";
 import { useState, useEffect } from 'react';
+import { useSidebar } from '../../contexts/SidebarContext.jsx';
 
 export default function Header(props) {
+    const { toggle } = useSidebar();
     const [isLight, setIsLight] = useState(() => {
         return localStorage.getItem('theme') === 'light';
     });
@@ -15,6 +18,9 @@ export default function Header(props) {
 
     return (
         <header className={style.header}>
+            <button className={style.menuButton} aria-label="Abrir menu" onClick={toggle}>
+                <FiMenu />
+            </button>
             <div className={style.welcome}>
                 <h2>{props.pageName}</h2>
                 <p>{props.pageDescription}</p>

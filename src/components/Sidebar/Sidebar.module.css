@@ -25,3 +25,25 @@
 :global(body.light) .title {
   color: #313131;
 }
+
+@media (max-width: 1024px) {
+  .sidebar {
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-110%);
+    transition: transform 0.3s ease;
+    left: 0;
+    width: 14rem;
+    border-radius: 0 20px 20px 0;
+  }
+  .sidebar[data-open="true"] {
+    transform: translateX(0);
+  }
+}

@@ -2,6 +2,12 @@
   margin-top: 3rem;
 }
 
+@media (max-width: 768px) {
+  .navigation {
+    margin-top: 1rem;
+  }
+}
+
 .navIcon {
   color: #eee;
 }

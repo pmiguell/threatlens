@@ -1,0 +1,32 @@
+.shell {
+  display: grid;
+  grid-template-columns: 15rem 1fr;
+  column-gap: 2rem;
+}
+
+.mainContent {
+  margin: 1rem 3rem 0 0;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .shell {
+    grid-template-columns: 0 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin: 1rem;
+  }
+  .backdrop {
+    display: block;
+  }
+}
+

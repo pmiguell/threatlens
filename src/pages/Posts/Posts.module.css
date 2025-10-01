@@ -48,6 +48,7 @@
   background-color: #2a303d;
   border-radius: 15px;
   padding: 1rem;
+  overflow-x: auto;
 }
 
 :global(body.light) .postsInputs input {
@@ -57,4 +58,19 @@
 :global(body.light) .postsContainer {
   background-color: #ffffff;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 1024px) {
+  .posts {
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .postsInputs {
+    justify-content: stretch;
+  }
+  .postsInputs input {
+    width: 100%;
+  }
 }
