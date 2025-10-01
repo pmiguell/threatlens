@@ -33,3 +33,16 @@
     align-items: center;
     gap: 0.5rem;
 }
+
+@media (max-width: 1024px) {
+  .proportionCardsContainer {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .proportionCard {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -11,3 +11,16 @@
     margin-bottom: 2rem;
     text-align: center;
 }
+
+@media (max-width: 1024px) {
+  .pieChartContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pieChartContainer {
+    height: auto;
+    padding: 1rem;
+  }
+}

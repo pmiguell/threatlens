@@ -11,3 +11,16 @@
     margin-bottom: 2rem;
     text-align: center;
 }
+
+@media (max-width: 1024px) {
+  .polarAreaChartContainer {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .polarAreaChartContainer {
+    height: auto;
+    padding: 1rem;
+  }
+}

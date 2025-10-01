@@ -59,3 +59,16 @@
 :global(body.light) .alertDescription a {
   color: #2A303D;
 }
+
+@media (max-width: 1024px) {
+  .alert {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .alertHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

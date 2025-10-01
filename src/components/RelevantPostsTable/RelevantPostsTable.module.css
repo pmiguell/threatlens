@@ -6,7 +6,8 @@
 
 .tableContainer {
     background-color: #2A303D;
-    width: 34rem;
+    width: 100%;
+    max-width: 34rem;
     border-radius: 15px;
     margin-top: 2rem;
     padding: 1rem;
@@ -104,6 +105,16 @@ table a {
 
 :global(body.light) .tableScroll{
     scrollbar-color: #EEEEEE #B0B0B0;
+}
+
+@media (max-width: 768px) {
+  td {
+    white-space: normal;
+    word-break: break-word;
+  }
+  .tableScroll {
+    max-height: 14rem;
+  }
 }
 
 

@@ -66,3 +66,25 @@
 :global(body.light) .activeBtn {
     color: #eee !important;
 }
+
+@media (max-width: 1024px) {
+  .filterContainer {
+    margin-left: 0;
+  }
+  .periodBar {
+    width: 100%;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .filterContainer {
+    gap: 0.75rem;
+  }
+  .periodBar {
+    gap: 1rem;
+  }
+  .intervalBtn {
+    width: auto;
+  }
+}
