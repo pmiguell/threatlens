@@ -6,8 +6,16 @@ import { GoAlert } from "react-icons/go";
 import { PiChatCenteredDots } from "react-icons/pi";
 import { TbReportAnalytics } from "react-icons/tb";
 import { CiUser, CiLogout } from "react-icons/ci";
+import { useNavigate } from "react-router-dom";
 
 export default function Navigation() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("jwtToken");
+    navigate("/login");
+  };
+
   return (
     <nav className={style.navigation}>
       <NavCategory title="Geral">
@@ -22,7 +30,12 @@ export default function Navigation() {
 
       <NavCategory title="Conta">
         <NavItem to="/account" icon={<CiUser size={20} className={style.navIcon} />} label="Minha conta" />
-        <NavItem to="/logout" icon={<CiLogout size={20} className={style.navIcon} />} label="Logout" />
+        <li>
+          <button className={style.logoutBtn} onClick={handleLogout}>
+            <CiLogout size={20} className={style.navIcon} />
+            Logout
+          </button>
+        </li>
       </NavCategory>
     </nav>
   );

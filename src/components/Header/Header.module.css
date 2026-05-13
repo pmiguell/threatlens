@@ -6,12 +6,12 @@
 }
 
 .welcome h2 {
-    color: #eee;
+    color: var(--color-text);
     font-size: 1.75rem;
 }
 
 .welcome p {
-    color: #B0B0B0;
+    color: var(--color-text-muted);
 }
 
 .headerIcons {
@@ -21,11 +21,11 @@
 }
 
 .headerIcon {
-    background-color: #2A303D;
+    background-color: var(--color-surface);
     padding: 0.25rem;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     font-size: 30px;
-    color: #eee;
+    color: var(--color-text);
 }
 
 .switch {
@@ -48,7 +48,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #2A303D;
+  background-color: var(--color-surface);
   transition: 0.4s;
   border-radius: 34px;
 }
@@ -60,7 +60,7 @@
   width: 16px;
   left: 4px;
   bottom: 3px;
-  background-color: #FFF;
+  background-color: var(--color-surface-light);
   transition: 0.4s;
   border-radius: 50%;
 }
@@ -74,14 +74,20 @@ input:checked + .slider:before {
 }
 
 :global(body.light) .welcome h2 {
-  color: #1E1E2F;
+  color: var(--color-text-light);
 }
 
 :global(body.light) .welcome p {
-  color: #5B5B6B;
+  color: var(--color-text-muted-light);
 }
 
 :global(body.light) .headerIcon {
-  color: #2A303D;
-  background-color: #EEEEEE;
+  color: var(--color-surface);
+  background-color: var(--color-surface-muted-light);
+}
+
+@media (max-width: 768px) {
+  .header {
+    padding-left: 3rem;
+  }
 }

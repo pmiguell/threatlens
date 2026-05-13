@@ -3,9 +3,34 @@
 }
 
 .navIcon {
-  color: #eee;
+  color: var(--color-text);
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--color-text);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0;
+  width: 100%;
+}
+
+.logoutBtn:hover {
+  color: var(--color-text-muted);
 }
 
 :global(body.light) .navIcon {
-  color: #2A303D;
+  color: var(--color-surface);
+}
+
+:global(body.light) .logoutBtn {
+  color: var(--color-surface);
+}
+
+:global(body.light) .logoutBtn:hover {
+  color: var(--color-text-subtle);
 }
