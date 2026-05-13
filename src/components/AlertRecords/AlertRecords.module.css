@@ -1,6 +1,6 @@
 .alert {
-    background-color: #2A303D;
-    border-radius: 10px;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
     width: 50rem;
     height: 12rem;
     display: flex;
@@ -16,16 +16,16 @@
 }
 
 .alertHeader h3 {
-    color: #fff;
+    color: var(--color-surface-light);
 }
 
 .alertHeader p {
-    color: #646464;
+    color: var(--color-text-subtle);
     margin-top: 0.5rem;
 }
 
 .trashIcon {
-    color: #d84747;
+    color: var(--color-danger);
     cursor: pointer;
 }
 
@@ -36,26 +36,34 @@
 }
 
 .alertDescription p {
-    color: #fff;
+    color: var(--color-surface-light);
 }
 
-.alertDescription a {
+.alertDescription span {
+    color: var(--color-text-muted);
     cursor: pointer;
 }
 
 :global(body.light) .alert {
-  background-color: #FFFFFF;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.300);
+  background-color: var(--color-surface-light);
+  box-shadow: var(--shadow-card);
 }
 
 :global(body.light) .alertHeader h3 {
-  color: #2A303D;
+  color: var(--color-surface);
 }
 
 :global(body.light) .alertDescription p {
-  color: #2A303D;
+  color: var(--color-surface);
 }
 
-:global(body.light) .alertDescription a {
-  color: #2A303D;
+:global(body.light) .alertDescription span {
+  color: var(--color-surface);
+}
+
+@media (max-width: 768px) {
+  .alert {
+    width: 100%;
+    height: auto;
+  }
 }
