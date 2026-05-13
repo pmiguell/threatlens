@@ -2,67 +2,88 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     gap: 1rem;
-    margin-left: 7rem;
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 
 .periodBar {
-    background-color: #2A303D;
-    width: 40rem;
+    background-color: var(--color-surface);
     height: 2.5rem;
-    border-radius: 15px;
+    border-radius: var(--radius-lg);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5rem;
+    gap: 1rem;
+    padding: 0 1rem;
+    flex: 1 1 auto;
+    min-width: 0;
 }
 
 .periodBar button {
     background-color: transparent;
-    color: #eee;
+    color: var(--color-text);
     border: none;
     font-size: 14px;
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .periodBar button:hover {
-    color: #b0b0b0;
+    color: var(--color-text-muted);
 }
 
 .intervalBtn {
-    background-color: #2A303D;
-    color: #eee;
+    background-color: var(--color-surface);
+    color: var(--color-text);
     border: none;
-    border-radius: 15px;
+    border-radius: var(--radius-lg);
     padding: 0 1rem;
     display: flex;
     align-items: center;
     gap: 0.75rem;
     font-size: 14px;
     height: 2.5rem;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .activeBtn {
-    background-color: #6558ff !important;
+    background-color: var(--color-accent) !important;
     width: 5rem;
     height: 1.75rem;
-    border-radius: 15px;
+    border-radius: var(--radius-lg);
 }
 
 :global(body.light) .periodBar {
-  background-color: #EEEEEE;
+  background-color: var(--color-surface-muted-light);
 }
 
 :global(body.light) .periodBar button {
-  color: #1E1E2F;
+  color: var(--color-text-light);
 }
 
 :global(body.light) .intervalBtn {
-  background-color: #EEEEEE;
-  color: #2A303D;
+  background-color: var(--color-surface-muted-light);
+  color: var(--color-surface);
 }
 
 :global(body.light) .activeBtn {
-    color: #eee !important;
+    color: var(--color-text) !important;
+}
+
+@media (max-width: 600px) {
+  .filterContainer {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .periodBar {
+    gap: 0.25rem;
+    justify-content: space-around;
+  }
+
+  .intervalBtn {
+    justify-content: center;
+  }
 }
