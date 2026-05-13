@@ -1,11 +1,5 @@
-import Overview from "../components/Overview/Overview"
-import PostPopUp from "../components/PostPopUp/PostPopUp"
+import Overview from "../components/Overview/Overview";
 
 export default function Home() {
-    return (
-      <div className="home">
-        <Overview />
-        <PostPopUp></PostPopUp>
-      </div>
-    )
-  }
+  return <Overview />;
+}
