@@ -1,0 +1,213 @@
+.myAccount {
+    margin: 1rem 3rem 0 18rem;
+}
+
+.myAccountContainer {
+    width: 50%;
+}
+
+.myAccountForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.formGroup label {
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+.inputRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.inputRow input {
+    flex: 1;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: none;
+    border-radius: var(--radius-md);
+    height: 2.75rem;
+    padding: 0 1rem;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
+    opacity: 0.7;
+    cursor: default;
+}
+
+.editIconBtn {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 1;
+    box-sizing: border-box;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.editIconBtn svg {
+    display: block;
+}
+
+.editIconBtn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+}
+
+/* Modal */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-overlay);
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: calc(var(--z-overlay) + 1);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    width: 28rem;
+    max-width: calc(100vw - 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.modalTitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.modalField {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.modalField label {
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+.modalField input {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border: none;
+    border-radius: var(--radius-md);
+    height: 2.75rem;
+    padding: 0 1rem;
+    font-size: 1rem;
+    outline: none;
+    font-family: inherit;
+    width: 100%;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.cancelBtn {
+    background-color: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-text-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.cancelBtn:hover {
+    border-color: var(--color-text-muted);
+}
+
+.saveBtn {
+    background-color: var(--color-accent);
+    color: var(--color-surface-light);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.saveBtn:hover {
+    background-color: var(--color-accent-dark);
+}
+
+/* Light mode */
+:global(body.light) .formGroup label {
+    color: var(--color-text-muted-light);
+}
+
+:global(body.light) .inputRow input {
+    background-color: var(--color-surface-muted-light);
+    color: var(--color-text-light);
+}
+
+:global(body.light) .editIconBtn {
+    background-color: var(--color-surface-muted-light);
+    color: var(--color-text-muted-light);
+}
+
+:global(body.light) .modal {
+    background-color: var(--color-surface-light);
+    box-shadow: var(--shadow-card);
+}
+
+:global(body.light) .modalTitle {
+    color: var(--color-text-light);
+}
+
+:global(body.light) .modalField label {
+    color: var(--color-text-muted-light);
+}
+
+:global(body.light) .modalField input {
+    background-color: var(--color-surface-muted-light);
+    color: var(--color-text-light);
+}
+
+:global(body.light) .cancelBtn {
+    color: var(--color-text-muted-light);
+    border-color: var(--color-surface-alt-light);
+}
+
+@media (max-width: 768px) {
+  .myAccount {
+    margin: 4rem 1rem 1rem 1rem;
+  }
+
+  .myAccountContainer {
+    width: 100%;
+  }
+}
