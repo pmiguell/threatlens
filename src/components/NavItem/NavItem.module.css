@@ -1,10 +1,10 @@
 .activeLink {
-  background-color: #6558ff;
-  border-radius: 15px;
+  background-color: var(--color-accent);
+  border-radius: var(--radius-lg);
   padding: 0.75rem;
 }
 
 :global(body.light) .activeLink {
-  color: #eee;
+  color: var(--color-text);
 }
 
