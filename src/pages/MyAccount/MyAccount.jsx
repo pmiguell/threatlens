@@ -19,7 +19,7 @@ export default function MyAccount() {
   const [values, setValues] = useState({
     username: "fulano123",
     email: "fulano@email.com",
-    password: "teste123testezin",
+    password: "",
   });
   const [editingField, setEditingField] = useState(null);
   const [modalValue, setModalValue] = useState("");
