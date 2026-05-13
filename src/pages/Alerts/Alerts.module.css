@@ -9,12 +9,12 @@
 }
 
 .welcome h2 {
-    color: #eee;
+    color: var(--color-text);
     font-size: 1.75rem;
 }
 
 .welcome p {
-    color: #B0B0B0;
+    color: var(--color-text-muted);
 }
 
 .alertsHeaderIcons {
@@ -23,11 +23,11 @@
 }
 
 .alertsIcon {
-    background-color: #2A303D;
+    background-color: var(--color-surface);
     padding: 0.25rem;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     font-size: 30px;
-    color: #eee;
+    color: var(--color-text);
 }
 
 .alertsButtons {
@@ -37,10 +37,10 @@
 }
 
 .alertsButtons button {
-    background-color: #6558FF;
-    color: #fff;
+    background-color: var(--color-accent);
+    color: var(--color-surface-light);
     border: none;
-    border-radius: 15px;
+    border-radius: var(--radius-lg);
     width: 250px;
     height: 50px;
     display: flex;
@@ -52,7 +52,7 @@
     line-height: 1;
 }
 
-.btnIcon{
+.btnIcon {
     font-size: 22px;
 }
 
@@ -63,3 +63,17 @@
     gap: 2rem;
 }
 
+@media (max-width: 768px) {
+  .alerts {
+    margin: 4rem 1rem 1rem 1rem;
+  }
+
+  .alertsButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .alertsButtons button {
+    width: 100%;
+  }
+}

@@ -1,10 +1,10 @@
 .tag {
-  background-color: #2a303d;
+  background-color: var(--color-surface);
   width: fit-content;
   display: flex;
   gap: 1rem;
   padding: 0.2rem 0.75rem;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   margin-bottom: 0.25rem;
 }
 
@@ -13,14 +13,14 @@
 }
 
 :global(body.light) .tag {
-  background-color: #fff;
+  background-color: var(--color-surface-light);
   box-shadow: 1px 1px 5px #0000001a;
 }
 
 :global(body.light) .tag p {
-  color: #1e1e2f;
+  color: var(--color-text-light);
 }
 
 :global(body.light) .closeIcon {
-  color: #1e1e2f;
+  color: var(--color-text-light);
 }

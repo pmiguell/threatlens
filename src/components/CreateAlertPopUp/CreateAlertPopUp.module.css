@@ -6,9 +6,9 @@
   width: 45%;
   height: 90vh;
   padding: 1rem 2rem 0 3rem;
-  border-radius: 10px;
-  background-color: #202020;
-  color: #fff;
+  border-radius: var(--radius-md);
+  background-color: var(--color-popup-bg);
+  color: var(--color-surface-light);
   overflow-y: auto;
 }
 .alertPopUp::-webkit-scrollbar {
@@ -28,7 +28,7 @@
   cursor: pointer;
 }
 
-.alertContainer { 
+.alertContainer {
     min-height: 95%;
     display: flex;
     flex-direction: column;
@@ -36,7 +36,7 @@
     align-items: center;
 }
 
-.alertContainer h1 { 
+.alertContainer h1 {
     text-align: center;
     font-size: 2rem;
     font-weight: 500;
@@ -52,7 +52,7 @@
     margin-bottom: 2rem;
 }
 
-.container h2{ 
+.container h2{
     margin-bottom: 1rem;
     font-weight: 400;
 }
@@ -62,11 +62,11 @@ input {
   height: 2.5rem;
   padding: 0.5rem 1rem;
   border: none;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   outline: none;
   resize: none;
   background-color: #2126317e;
-  color: #fff;
+  color: var(--color-surface-light);
   font-size: 14px;
   font-family: inherit;
 }
@@ -84,7 +84,7 @@ input {
 .tagsContainer::-webkit-scrollbar {
   width: 5px;
   height: 8px;
-  border-radius: 10px;
+  border-radius: var(--radius-md);
 }
 
 .tagsContainer::-webkit-scrollbar-thumb {
@@ -120,9 +120,9 @@ input {
   width: 80%;
   min-height: 3rem;
   margin: 1rem 0 2rem 0;
-  border-radius: 10px;
-  background-color: #6558ff;
-  color: #fff;
+  border-radius: var(--radius-md);
+  background-color: var(--color-accent);
+  color: var(--color-surface-light);
   font-size: 18px;
   border: none;
   transition: 0.7s;
@@ -133,23 +133,23 @@ input {
 }
 
 :global(body.light) .alertPopUp {
-    background-color: #E6E9F0;
+    background-color: var(--color-surface-alt-light);
 }
 
 :global(body.light) input {
-    background-color: #EEEEEE;
+    background-color: var(--color-surface-muted-light);
     border: 1px solid #ccc;
-    color: #1E1E2F;
+    color: var(--color-text-light);
 }
 
 :global(body.light) .container h2 {
-    color: #1E1E2F;
+    color: var(--color-text-light);
 }
 
 :global(body.light) .alertContainer h1 {
-    color: #1E1E2F;
+    color: var(--color-text-light);
 }
 
 :global(body.light) .closeIcon{
-    color: #1E1E2F;
+    color: var(--color-text-light);
 }
