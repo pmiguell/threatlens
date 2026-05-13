@@ -16,9 +16,9 @@ export default function AlertRecords({alertRecord, onDelete}){
                   </div>
                   <div className={style.alertDescription}>
                     <p>{alertRecord.description}</p>
-                    <a>
+                    <span>
                       <FaExternalLinkAlt /> {alertRecord.post}
-                    </a>
+                    </span>
                   </div>
                 </div>
     )
