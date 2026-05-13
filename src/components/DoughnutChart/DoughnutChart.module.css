@@ -1,23 +1,23 @@
 .doughnutChartContainer {
-    background-color: #2A303D;
-    border-radius: 15px;
-    width: 27.4rem;
-    height: 34rem;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    width: 100%;
     padding: 2rem;
+    box-sizing: border-box;
 }
 
 .description {
-    color: #eee;
+    color: var(--color-text);
     margin-bottom: 2rem;
     text-align: center;
     font-size: 22px;
 }
 
 :global(body.light) .description {
-  color: #1E1E2F;
+  color: var(--color-text-light);
 }
 
 :global(body.light) .doughnutChartContainer {
-  background-color: #FFFFFF;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.300);
+  background-color: var(--color-surface-light);
+  box-shadow: var(--shadow-card);
 }
