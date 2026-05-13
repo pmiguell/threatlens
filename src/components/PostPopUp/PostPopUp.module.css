@@ -3,11 +3,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #202020;
+    background-color: var(--color-popup-bg);
     width: 60%;
     height: 90vh;
     padding: 1rem 2rem 5rem 5rem;
-    border-radius: 10px;
+    border-radius: var(--radius-md);
 }
 
 .topIcons{
@@ -56,21 +56,21 @@
     right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5); /* Fundo escurecido */
-    z-index: 999; /* Certifique-se de que a sobreposição esteja abaixo do popup */
+    z-index: var(--z-overlay);
 }
-  
+
 :global(body.light) .postPopUp {
-    background-color: #E6E9F0;
+    background-color: var(--color-surface-alt-light);
 }
 
 :global(body.light) .postContainer h1 {
-    color: #2A303D;
+    color: var(--color-surface);
 }
 
 :global(body.light) .postBody p {
-    color: #2A303D;
+    color: var(--color-surface);
 }
 
 :global(body.light) .topIcons {
-    color: #2A303D;
+    color: var(--color-surface);
 }
