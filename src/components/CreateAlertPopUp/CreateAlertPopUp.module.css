@@ -11,6 +11,7 @@
   color: var(--color-surface-light);
   overflow-y: auto;
 }
+
 .alertPopUp::-webkit-scrollbar {
   width: 5px;
   height: 8px;
@@ -22,25 +23,25 @@
 }
 
 .closeIcon {
-  position:sticky;
+  position: sticky;
   top: 0;
   text-align: right;
   cursor: pointer;
 }
 
 .alertContainer {
-    min-height: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+  min-height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .alertContainer h1 {
-    text-align: center;
-    font-size: 2rem;
-    font-weight: 500;
-    margin-bottom: 3rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
 }
 
 .alertContent {
@@ -48,13 +49,13 @@
   margin: 1rem auto;
 }
 
-.container{
-    margin-bottom: 2rem;
+.container {
+  margin-bottom: 2rem;
 }
 
-.container h2{
-    margin-bottom: 1rem;
-    font-weight: 400;
+.container h2 {
+  margin-bottom: 1rem;
+  font-weight: 400;
 }
 
 input {
@@ -71,15 +72,43 @@ input {
   font-family: inherit;
 }
 
-.tagsContainer{
-    max-height: 70px;
-    overflow-y: auto;
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
+/* ── Fóruns ── */
+.forumsContainer {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
+.forumLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--color-surface-light);
+}
+
+.forumLabel input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  accent-color: var(--color-accent);
+}
+
+/* ── Keywords e Emails (tags) ── */
+.keywordsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.tagsContainer {
+  max-height: 70px;
+  overflow-y: auto;
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
 
 .tagsContainer::-webkit-scrollbar {
   width: 5px;
@@ -91,14 +120,62 @@ input {
   background: #2b2b2b;
 }
 
-.deadlineContainer input[type="date"]:disabled {
-    background-color: #666b75;
+/* ── Frequência ── */
+.frequencyContainer {
+  display: flex;
+  gap: 0.75rem;
 }
 
+.frequencyNumber {
+  width: 80px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.frequencySelect {
+  flex: 1;
+  height: 2.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  outline: none;
+  background-color: #2126317e;
+  color: var(--color-surface-light);
+  font-size: 14px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ── Datas ── */
+.datesContainer {
+  display: flex;
+  gap: 1rem;
+}
+
+.datesContainer > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.datesContainer label {
+  font-size: 13px;
+  color: #a8a8a8;
+}
+
+.datesContainer input[type="date"] {
+  width: 100%;
+}
+
+/* ── Checkbox sem data limite ── */
+.deadlineContainer input[type="date"]:disabled {
+  background-color: #666b75;
+}
 
 .deadlineCheckbox {
   margin-top: 0.5rem;
-    display: flex;
+  display: flex;
   gap: 0.3rem;
   align-items: center;
 }
@@ -107,6 +184,7 @@ input {
   width: 15px;
   height: 15px;
   cursor: pointer;
+  accent-color: var(--color-accent);
 }
 
 .deadlineCheckbox label {
@@ -116,6 +194,7 @@ input {
   cursor: pointer;
 }
 
+/* ── Botão ── */
 .button {
   width: 80%;
   min-height: 3rem;
@@ -125,31 +204,47 @@ input {
   color: var(--color-surface-light);
   font-size: 18px;
   border: none;
+  cursor: pointer;
   transition: 0.7s;
 }
 
-.button:hover{
-    background-color: #5546ff;
+.button:hover {
+  background-color: #5546ff;
 }
 
+/* ── Tema claro ── */
 :global(body.light) .alertPopUp {
-    background-color: var(--color-surface-alt-light);
+  background-color: var(--color-surface-alt-light);
 }
 
 :global(body.light) input {
-    background-color: var(--color-surface-muted-light);
-    border: 1px solid #ccc;
-    color: var(--color-text-light);
+  background-color: var(--color-surface-muted-light);
+  border: 1px solid #ccc;
+  color: var(--color-text-light);
+}
+
+:global(body.light) .frequencySelect {
+  background-color: var(--color-surface-muted-light);
+  border: 1px solid #ccc;
+  color: var(--color-text-light);
+}
+
+:global(body.light) .forumLabel {
+  color: var(--color-text-light);
+}
+
+:global(body.light) .datesContainer label {
+  color: #666;
 }
 
 :global(body.light) .container h2 {
-    color: var(--color-text-light);
+  color: var(--color-text-light);
 }
 
 :global(body.light) .alertContainer h1 {
-    color: var(--color-text-light);
+  color: var(--color-text-light);
 }
 
-:global(body.light) .closeIcon{
-    color: var(--color-text-light);
+:global(body.light) .closeIcon {
+  color: var(--color-text-light);
 }
