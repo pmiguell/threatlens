@@ -2,13 +2,7 @@ import style from "./CreateAlertPopUp.module.css";
 import { useState } from "react";
 import AlertSelectedTags from "../AlertSelectedTags/AlertSelectedTags";
 import RangeSlider from "../RangeSlider/RangeSlider";
-
-const FORUMS_OPTIONS = ["twitter", "reddit", "darkweb"];
-const FREQUENCY_TYPES = [
-    { label: "Dias", value: "days" },
-    { label: "Semanas", value: "weeks" },
-    { label: "Meses", value: "months" },
-];
+import { FORUM_OPTIONS, FREQUENCY_TYPES } from "../../constants";
 
 export default function CreateAlertPopUp({ isOpen, onClose, idUser }) {
     const [name, setName] = useState("");
@@ -183,7 +177,7 @@ export default function CreateAlertPopUp({ isOpen, onClose, idUser }) {
                     <div className={style.container}>
                         <h2>Fonte de busca:</h2>
                         <div className={style.forumsContainer}>
-                            {FORUMS_OPTIONS.map((forum) => (
+                            {FORUM_OPTIONS.map((forum) => (
                                 <label key={forum} className={style.forumLabel}>
                                     <input
                                         type="checkbox"
