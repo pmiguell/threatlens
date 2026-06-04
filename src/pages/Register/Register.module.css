@@ -69,6 +69,12 @@ a:hover {
     color: var(--color-text-muted);
 }
 
+.errorMsg {
+    color: #ff4d4f;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
 @media (max-width: 425px) {
     .registerContainer {
         width: 100%;

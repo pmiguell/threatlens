@@ -1,40 +1,37 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import style from "./Login.module.css";
+import { authService } from "../../services/auth/authService";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setLoading(true);
 
     try {
-      const response = await axios.post("http://192.168.15.2:8080/auth/login", {
-        email,
-        password,
-      });
-
-      const token = response.data.token;
-
-      // Salva token para usar nas próximas requisições
-      localStorage.setItem("jwtToken", token);
-
-      // Redireciona para área protegida
-      navigate("/"); // Altere para a rota protegida do seu app
+      const { data } = await authService.login({ email, password });
+      login(data);
+      navigate("/", { replace: true });
     } catch (err) {
-      if (
-        err.response &&
-        err.response.data &&
-        err.response.data.message === "Usuário ainda não verificou o código 2FA"
-      ) {
-        alert("Você precisa verificar seu código 2FA antes de logar.");
+      const msg = err.response?.data?.message ?? "Erro ao fazer login.";
+      if (msg.includes("não verificou")) {
+        localStorage.setItem("emailForVerification", email);
+        localStorage.setItem("codeTypeForVerification", "REGISTER");
         navigate("/verify");
       } else {
-        alert("Erro ao fazer login: " + (err.response?.data?.message || err.message));
+        setError(msg);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -64,14 +61,17 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <input type="submit" value="Logar" />
+        {error && <p className={style.errorMsg}>{error}</p>}
+        <input type="submit" value={loading ? "Entrando..." : "Logar"} disabled={loading} />
       </form>
       <div className={style.loginOptions}>
         <div className={style.rememberMe}>
-          <input type="checkbox" id="rememberMe" name="rememberMe" value="rememberMe" />
+          <input type="checkbox" id="rememberMe" name="rememberMe" />
           <label htmlFor="rememberMe">Lembrar de mim</label>
         </div>
-        <a href="#">Esqueci minha senha</a>
+        <Link to="/forgot-password" className={style.highlight}>
+          Esqueci minha senha
+        </Link>
       </div>
     </div>
   );
