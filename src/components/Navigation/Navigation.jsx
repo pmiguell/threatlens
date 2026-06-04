@@ -7,13 +7,15 @@ import { PiChatCenteredDots } from "react-icons/pi";
 import { TbReportAnalytics } from "react-icons/tb";
 import { CiUser, CiLogout } from "react-icons/ci";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 
 export default function Navigation() {
   const navigate = useNavigate();
+  const { logout } = useAuth();
 
-  const handleLogout = () => {
-    localStorage.removeItem("jwtToken");
-    navigate("/login");
+  const handleLogout = async () => {
+    await logout();
+    navigate("/login", { replace: true });
   };
 
   return (

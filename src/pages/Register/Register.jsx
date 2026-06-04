@@ -1,35 +1,36 @@
-import { Link } from "react-router-dom";
-import style from "./Register.module.css";
-import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import style from "./Register.module.css";
+import { authService } from "../../services/auth/authService";
 
 export default function Register() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
 
     if (password !== repeatPassword) {
-      alert("As senhas não coincidem");
+      setError("As senhas não coincidem.");
       return;
     }
 
+    setLoading(true);
     try {
-      await axios.post("http://192.168.15.2:8080/auth/register", {
-        username,
-        email,
-        password,
-      });
-
+      await authService.register({ username, email, password });
       localStorage.setItem("emailForVerification", email);
+      localStorage.setItem("codeTypeForVerification", "REGISTER");
       navigate("/verify");
     } catch (err) {
-      alert("Erro ao cadastrar: " + err.response?.data?.message || err.message);
+      setError(err.response?.data?.message ?? "Erro ao cadastrar.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -44,32 +45,37 @@ export default function Register() {
           aqui
         </Link>
       </p>
-      <form action="" onSubmit={handleSubmit} className={style.registerForm}>
+      <form onSubmit={handleSubmit} className={style.registerForm}>
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Nome de usuário"
+          required
         />
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail"
+          required
         />
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Senha"
+          required
         />
         <input
           type="password"
           value={repeatPassword}
           onChange={(e) => setRepeatPassword(e.target.value)}
           placeholder="Repita a senha"
+          required
         />
-        <input type="submit" value="Cadastrar" />
+        {error && <p className={style.errorMsg}>{error}</p>}
+        <input type="submit" value={loading ? "Cadastrando..." : "Cadastrar"} disabled={loading} />
       </form>
     </div>
   );

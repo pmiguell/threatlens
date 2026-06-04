@@ -1,22 +1,30 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import style from "./VerifyCode.module.css";
+import { authService } from "../../services/auth/authService";
+import { useAuth } from "../../context/AuthContext";
 
-const OTP_LENGTH = 6;
+const OTP_LENGTH = 4;
 
 export default function VerifyCode() {
   const [digits, setDigits] = useState(Array(OTP_LENGTH).fill(""));
   const [email, setEmail] = useState("");
+  const [codeType, setCodeType] = useState("REGISTER");
+  const [error, setError] = useState("");
+  const [successMsg, setSuccessMsg] = useState("");
+  const [loading, setLoading] = useState(false);
   const inputsRef = useRef([]);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   useEffect(() => {
     const storedEmail = localStorage.getItem("emailForVerification");
+    const storedCodeType = localStorage.getItem("codeTypeForVerification") ?? "REGISTER";
     if (!storedEmail) {
       navigate("/register");
     } else {
       setEmail(storedEmail);
+      setCodeType(storedCodeType);
     }
   }, [navigate]);
 
@@ -52,17 +60,48 @@ export default function VerifyCode() {
     inputsRef.current[focusIndex].focus();
   }
 
+  const handleResend = async () => {
+    setError("");
+    setSuccessMsg("");
+    try {
+      if (codeType === "RESET_PASSWORD") {
+        await authService.resendPasswordCode(email);
+      } else {
+        await authService.resendCode(email);
+      }
+      setDigits(Array(OTP_LENGTH).fill(""));
+      setSuccessMsg("Novo código enviado para o seu e-mail.");
+      inputsRef.current[0]?.focus();
+    } catch {
+      setError("Não foi possível reenviar o código.");
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const code = digits.join("");
     if (code.length < OTP_LENGTH) return;
 
+    setError("");
+    setSuccessMsg("");
+    setLoading(true);
     try {
-      await axios.post("http://192.168.15.2:8080/auth/verify", { email, code });
+      const { data } = await authService.verify({ email, codeType, code });
+
       localStorage.removeItem("emailForVerification");
-      navigate("/login");
+      localStorage.removeItem("codeTypeForVerification");
+
+      if (codeType === "RESET_PASSWORD") {
+        login(data);
+        navigate("/reset-password", { replace: true });
+      } else {
+        login(data);
+        navigate("/", { replace: true });
+      }
     } catch (err) {
-      alert("Código inválido ou expirado");
+      setError(err.response?.data?.message ?? "Código inválido ou expirado.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -91,8 +130,13 @@ export default function VerifyCode() {
             />
           ))}
         </div>
-        <input type="submit" value="Verificar" />
+        {error && <p className={style.errorMsg}>{error}</p>}
+        {successMsg && <p className={style.successMsg}>{successMsg}</p>}
+        <input type="submit" value={loading ? "Verificando..." : "Verificar"} disabled={loading} />
       </form>
+      <button type="button" className={style.resendBtn} onClick={handleResend}>
+        Reenviar código
+      </button>
     </div>
   );
 }

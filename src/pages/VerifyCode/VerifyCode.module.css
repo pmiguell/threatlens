@@ -80,6 +80,32 @@ p {
     background-color: var(--color-accent-dark);
 }
 
+.errorMsg {
+    color: #ff4d4f;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.successMsg {
+    color: #52c41a;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.resendBtn {
+    background: none;
+    border: none;
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.resendBtn:hover {
+    color: var(--color-text-muted);
+}
+
 a {
     text-decoration: none;
     color: var(--color-text);
