@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import style from "./Register.module.css";
 import { authService } from "../../services/auth/authService";
+import { EMAIL_VERIFICATION_KEY, CODE_TYPE_KEY, CODE_TYPE_REGISTER } from "../../constants";
+import { storage } from "../../utils";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -24,8 +26,8 @@ export default function Register() {
     setLoading(true);
     try {
       await authService.register({ username, email, password });
-      localStorage.setItem("emailForVerification", email);
-      localStorage.setItem("codeTypeForVerification", "REGISTER");
+      storage.set(EMAIL_VERIFICATION_KEY, email);
+      storage.set(CODE_TYPE_KEY, CODE_TYPE_REGISTER);
       navigate("/verify");
     } catch (err) {
       setError(err.response?.data?.message ?? "Erro ao cadastrar.");

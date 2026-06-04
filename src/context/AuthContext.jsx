@@ -1,17 +1,12 @@
 import { createContext, useCallback, useContext, useState } from "react";
 import { authService } from "../services/auth/authService";
-
-const AUTH_USER_KEY = "auth_user";
+import { AUTH_USER_KEY } from "../constants";
+import { storage } from "../utils";
 
 const AuthContext = createContext(null);
 
 function loadStoredUser() {
-  try {
-    const stored = localStorage.getItem(AUTH_USER_KEY);
-    return stored ? JSON.parse(stored) : null;
-  } catch {
-    return null;
-  }
+  return storage.get(AUTH_USER_KEY);
 }
 
 export function AuthProvider({ children }) {
@@ -19,7 +14,7 @@ export function AuthProvider({ children }) {
 
   const login = useCallback((userData) => {
     setUser(userData);
-    localStorage.setItem(AUTH_USER_KEY, JSON.stringify(userData));
+    storage.set(AUTH_USER_KEY, userData);
   }, []);
 
   const logout = useCallback(async () => {
@@ -27,7 +22,7 @@ export function AuthProvider({ children }) {
       await authService.logout();
     } catch {}
     setUser(null);
-    localStorage.removeItem(AUTH_USER_KEY);
+    storage.remove(AUTH_USER_KEY);
   }, []);
 
   return (

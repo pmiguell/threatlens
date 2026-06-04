@@ -3,13 +3,19 @@ import { useNavigate } from "react-router-dom";
 import style from "./VerifyCode.module.css";
 import { authService } from "../../services/auth/authService";
 import { useAuth } from "../../context/AuthContext";
-
-const OTP_LENGTH = 4;
+import {
+  EMAIL_VERIFICATION_KEY,
+  CODE_TYPE_KEY,
+  CODE_TYPE_REGISTER,
+  CODE_TYPE_RESET_PASSWORD,
+  OTP_LENGTH,
+} from "../../constants";
+import { storage } from "../../utils";
 
 export default function VerifyCode() {
   const [digits, setDigits] = useState(Array(OTP_LENGTH).fill(""));
   const [email, setEmail] = useState("");
-  const [codeType, setCodeType] = useState("REGISTER");
+  const [codeType, setCodeType] = useState(CODE_TYPE_REGISTER);
   const [error, setError] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
   const [loading, setLoading] = useState(false);
@@ -18,8 +24,8 @@ export default function VerifyCode() {
   const { login } = useAuth();
 
   useEffect(() => {
-    const storedEmail = localStorage.getItem("emailForVerification");
-    const storedCodeType = localStorage.getItem("codeTypeForVerification") ?? "REGISTER";
+    const storedEmail = storage.get(EMAIL_VERIFICATION_KEY);
+    const storedCodeType = storage.get(CODE_TYPE_KEY) ?? CODE_TYPE_REGISTER;
     if (!storedEmail) {
       navigate("/register");
     } else {
@@ -64,7 +70,7 @@ export default function VerifyCode() {
     setError("");
     setSuccessMsg("");
     try {
-      if (codeType === "RESET_PASSWORD") {
+      if (codeType === CODE_TYPE_RESET_PASSWORD) {
         await authService.resendPasswordCode(email);
       } else {
         await authService.resendCode(email);
@@ -88,10 +94,10 @@ export default function VerifyCode() {
     try {
       const { data } = await authService.verify({ email, codeType, code });
 
-      localStorage.removeItem("emailForVerification");
-      localStorage.removeItem("codeTypeForVerification");
+      storage.remove(EMAIL_VERIFICATION_KEY);
+      storage.remove(CODE_TYPE_KEY);
 
-      if (codeType === "RESET_PASSWORD") {
+      if (codeType === CODE_TYPE_RESET_PASSWORD) {
         login(data);
         navigate("/reset-password", { replace: true });
       } else {

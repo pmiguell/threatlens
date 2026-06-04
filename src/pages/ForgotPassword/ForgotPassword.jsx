@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import style from "./ForgotPassword.module.css";
 import { authService } from "../../services/auth/authService";
+import { EMAIL_VERIFICATION_KEY, CODE_TYPE_KEY, CODE_TYPE_RESET_PASSWORD } from "../../constants";
+import { storage } from "../../utils";
 
 export default function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -16,8 +18,8 @@ export default function ForgotPassword() {
 
     try {
       await authService.forgotPassword({ email });
-      localStorage.setItem("emailForVerification", email);
-      localStorage.setItem("codeTypeForVerification", "RESET_PASSWORD");
+      storage.set(EMAIL_VERIFICATION_KEY, email);
+      storage.set(CODE_TYPE_KEY, CODE_TYPE_RESET_PASSWORD);
       navigate("/verify");
     } catch (err) {
       setError(err.response?.data?.message ?? "Não foi possível enviar o código.");

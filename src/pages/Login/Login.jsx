@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import style from "./Login.module.css";
 import { authService } from "../../services/auth/authService";
 import { useAuth } from "../../context/AuthContext";
+import { EMAIL_VERIFICATION_KEY, CODE_TYPE_KEY, CODE_TYPE_REGISTER } from "../../constants";
+import { storage } from "../../utils";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -24,8 +26,8 @@ export default function Login() {
     } catch (err) {
       const msg = err.response?.data?.message ?? "Erro ao fazer login.";
       if (msg.includes("não verificou")) {
-        localStorage.setItem("emailForVerification", email);
-        localStorage.setItem("codeTypeForVerification", "REGISTER");
+        storage.set(EMAIL_VERIFICATION_KEY, email);
+        storage.set(CODE_TYPE_KEY, CODE_TYPE_REGISTER);
         navigate("/verify");
       } else {
         setError(msg);

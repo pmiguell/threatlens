@@ -1,6 +1,6 @@
 import axios from "axios";
-
-const AUTH_USER_KEY = "auth_user";
+import { AUTH_USER_KEY } from "../constants";
+import { storage } from "../utils";
 
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -46,7 +46,7 @@ api.interceptors.response.use(
       return api(original);
     } catch (refreshError) {
       processQueue(refreshError);
-      localStorage.removeItem(AUTH_USER_KEY);
+      storage.remove(AUTH_USER_KEY);
       window.location.href = "/login";
       return Promise.reject(refreshError);
     } finally {
