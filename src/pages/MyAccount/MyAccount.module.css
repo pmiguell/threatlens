@@ -128,6 +128,12 @@
     width: 100%;
 }
 
+.modalError {
+    color: #ff4d4f;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
 .modalActions {
     display: flex;
     justify-content: flex-end;
