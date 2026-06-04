@@ -9,6 +9,8 @@ import Posts from "./pages/Posts/Posts";
 import MyAccount from "./pages/MyAccount/MyAccount";
 import VerifyCode from "./pages/VerifyCode/VerifyCode";
 import Reports from "./pages/Reports/Reports";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import NotFound from "./pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
@@ -26,11 +28,13 @@ const router = createBrowserRouter([
           { path: "reports", element: <Reports /> },
         ],
       },
+      { path: "reset-password", element: <ResetPassword /> },
     ],
   },
   { path: "/login", element: <Login /> },
   { path: "/register", element: <Register /> },
   { path: "/verify", element: <VerifyCode /> },
+  { path: "/forgot-password", element: <ForgotPassword /> },
   { path: "*", element: <NotFound /> },
 ]);
 
