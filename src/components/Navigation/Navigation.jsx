@@ -6,12 +6,13 @@ import { GoAlert } from "react-icons/go";
 import { PiChatCenteredDots } from "react-icons/pi";
 import { TbReportAnalytics } from "react-icons/tb";
 import { CiUser, CiLogout } from "react-icons/ci";
+import { MdAdminPanelSettings } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Navigation() {
   const navigate = useNavigate();
-  const { logout } = useAuth();
+  const { logout, user } = useAuth();
 
   const handleLogout = async () => {
     await logout();
@@ -32,6 +33,13 @@ export default function Navigation() {
 
       <NavCategory title="Conta">
         <NavItem to="/account" icon={<CiUser size={20} className={style.navIcon} />} label="Minha conta" />
+        {user?.role === "ADMIN" && (
+          <NavItem
+            to="/admin"
+            icon={<MdAdminPanelSettings size={20} className={style.navIcon} />}
+            label="Administração"
+          />
+        )}
         <li>
           <button className={style.logoutBtn} onClick={handleLogout}>
             <CiLogout size={20} className={style.navIcon} />

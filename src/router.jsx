@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "./layouts/RootLayout";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import AdminRoute from "./components/ProtectedRoute/AdminRoute";
 import Home from "./pages/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
@@ -12,6 +13,7 @@ import Reports from "./pages/Reports/Reports";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import NotFound from "./pages/NotFound/NotFound";
+import Admin from "./pages/Admin/Admin";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +28,12 @@ const router = createBrowserRouter([
           { path: "posts", element: <Posts /> },
           { path: "account", element: <MyAccount /> },
           { path: "reports", element: <Reports /> },
+          {
+            element: <AdminRoute />,
+            children: [
+              { path: "admin", element: <Admin /> },
+            ],
+          },
         ],
       },
       { path: "reset-password", element: <ResetPassword /> },
