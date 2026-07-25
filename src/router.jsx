@@ -5,11 +5,9 @@ import AdminRoute from "./components/ProtectedRoute/AdminRoute";
 import Home from "./pages/Home";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
-import Alerts from "./pages/Alerts/Alerts";
 import Posts from "./pages/Posts/Posts";
 import MyAccount from "./pages/MyAccount/MyAccount";
 import VerifyCode from "./pages/VerifyCode/VerifyCode";
-import Reports from "./pages/Reports/Reports";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword/ResetPassword";
 import NotFound from "./pages/NotFound/NotFound";
@@ -24,10 +22,8 @@ const router = createBrowserRouter([
         element: <RootLayout />,
         children: [
           { index: true, element: <Home /> },
-          { path: "alerts", element: <Alerts /> },
           { path: "posts", element: <Posts /> },
           { path: "account", element: <MyAccount /> },
-          { path: "reports", element: <Reports /> },
           {
             element: <AdminRoute />,
             children: [
