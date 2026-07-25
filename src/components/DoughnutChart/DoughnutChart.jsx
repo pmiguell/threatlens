@@ -4,13 +4,13 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
-export default function DoughnutChart() {
+export default function DoughnutChart({ low = 0, medium = 0, high = 0 }) {
   const data = {
     labels: ["Baixa Relevância", "Média Relevância", "Alta Relevância"],
     datasets: [
       {
         label: "Quantidade de posts",
-        data: [8098, 1372, 1056],
+        data: [low, medium, high],
         backgroundColor: [
           "#8BC34A",
           "#FFCF4D",

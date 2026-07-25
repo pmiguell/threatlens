@@ -7,11 +7,36 @@ import BarChart from "../BarChart/BarChart";
 import DoughnutChart from "../DoughnutChart/DoughnutChart";
 import WordCloud from "../WordCloud/WordCloud";
 import Header from "../Header/Header";
-import { filterDataMap, wordCloudData } from "../../data/overviewData";
+import { wordCloudData } from "../../data/overviewData";
+import { useStats, usePosts } from "../../hooks";
+
+const FILTER_TO_PERIOD = {
+  Dia: "DAY",
+  Semana: "WEEK",
+  "Mês": "MONTH",
+  Ano: "YEAR",
+  Tudo: "ALL",
+};
+
+const FILTER_LABEL = {
+  Dia: "hoje",
+  Semana: "na semana",
+  "Mês": "no mês",
+  Ano: "no ano",
+  Tudo: "",
+};
 
 export default function Overview() {
   const [filter, setFilter] = useState("Tudo");
-  const displayedData = filterDataMap[filter] ?? filterDataMap["Tudo"];
+
+  const period = FILTER_TO_PERIOD[filter];
+
+  const { stats } = useStats({ period });
+  const { posts: topPosts } = usePosts({ sort: "SCORE", order: "DESC", size: 5, period });
+
+  const analyzedPosts = stats?.summary.totalPosts ?? 0;
+  const relevantPosts = stats?.summary.relevantPostsInPeriod ?? 0;
+  const label = FILTER_LABEL[filter];
 
   return (
     <div className={style.app}>
@@ -20,17 +45,21 @@ export default function Overview() {
       <div className={style.infosContainer}>
         <div className={style.infosContainerCol1}>
           <ProportionCard
-            analyzedPosts={displayedData.analyzedPosts}
-            relevantPosts={displayedData.relevantPosts}
-            label={displayedData.label}
+            analyzedPosts={analyzedPosts}
+            relevantPosts={relevantPosts}
+            label={label}
           />
-          <RelevantPostsTable mostRelevantPosts={displayedData.mostRelevantPosts} />
+          <RelevantPostsTable mostRelevantPosts={topPosts} />
         </div>
         <div className={style.infosContainerCol2}>
-          <DoughnutChart />
+          <DoughnutChart
+            low={stats?.relevanceDistribution.lowCount ?? 0}
+            medium={stats?.relevanceDistribution.mediumCount ?? 0}
+            high={stats?.relevanceDistribution.highCount ?? 0}
+          />
         </div>
       </div>
-      <BarChart />
+      <BarChart sources={stats?.sources ?? []} label={label} />
       <WordCloud palavras={wordCloudData} />
     </div>
   );

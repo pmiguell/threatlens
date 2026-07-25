@@ -1,26 +1,37 @@
-import { useMemo, useState } from "react";
+import { useState, useEffect } from "react";
+import { getPosts } from "../services/post/postService"
 
-const mockPosts = [
-  { id: 4223, rate: 0.99, title: "Como obter o IP de um site...", keywords: "IP", ioc: "Sim" },
-  { id: 4224, rate: 0.87, title: "Como hackear uma rede wifi...", keywords: "wifi, hack", ioc: "Não" },
-  { id: 4225, rate: 0.75, title: "SQL Injection em aplicações web", keywords: "sql, injection", ioc: "Sim" },
-  { id: 4226, rate: 0.62, title: "Dataleak da Algar no dia 13/02/2025", keywords: "dataleak", ioc: "Sim" },
-  { id: 4227, rate: 0.55, title: "Como planejar um ataque DDoS...", keywords: "ddos, attack", ioc: "Não" },
-];
+export function usePosts({ page = 0, size = 20, period, relevance, sources, sort, order, category } = {}) {
+  const [posts, setPosts] = useState([]);
+  const [pagination, setPagination] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-export function usePosts({ search = "" } = {}) {
-  const [loading] = useState(false);
-  const [error] = useState(null);
+  useEffect(() => {
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
 
-  const posts = useMemo(() => {
-    if (!search.trim()) return mockPosts;
-    const query = search.toLowerCase();
-    return mockPosts.filter(
-      (p) =>
-        p.title.toLowerCase().includes(query) ||
-        p.keywords.toLowerCase().includes(query)
-    );
-  }, [search]);
+    const params = { page, size };
+    if (period && period !== "ALL") params.period = period;
+    if (relevance) params.relevance = relevance;
+    if (sources?.length) params.sources = sources;
+    if (sort) params.sort = sort;
+    if (order) params.order = order;
+    if (category) params.category = category;
 
-  return { posts, loading, error };
+    getPosts(params)
+      .then((result) => {
+        if (!cancelled) {
+          setPosts(result.data);
+          setPagination(result.pagination);
+        }
+      })
+      .catch((err) => { if (!cancelled) setError(err); })
+      .finally(() => { if (!cancelled) setLoading(false); });
+
+    return () => { cancelled = true; };
+  }, [page, size, period, relevance, sort, order, category]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  return { posts, pagination, loading, error };
 }
