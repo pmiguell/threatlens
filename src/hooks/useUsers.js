@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { usersService } from "../services/users/usersService";
+import { adminService } from "../services/admin/adminService";
 
 export function useUsers() {
   const [users, setUsers] = useState([]);
@@ -10,7 +10,7 @@ export function useUsers() {
     setLoading(true);
     setError("");
     try {
-      const { data } = await usersService.listAll();
+      const { data } = await adminService.listAll();
       setUsers(data.content);
     } catch {
       setError("Erro ao carregar usuários.");
@@ -24,7 +24,7 @@ export function useUsers() {
   }, [fetchUsers]);
 
   async function deleteUser(id) {
-    await usersService.deleteUser(id);
+    await adminService.deleteUser(id);
     setUsers((prev) => prev.filter((u) => u.id !== id));
   }
 
