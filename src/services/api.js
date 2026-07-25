@@ -20,7 +20,9 @@ api.interceptors.response.use(
   async (error) => {
     const original = error.config;
 
-    if (error.response?.status !== 401 || original._retry) {
+    const status = error.response?.status;
+
+    if ((status !== 401 && status !== 403) || original._retry) {
       return Promise.reject(error);
     }
 
