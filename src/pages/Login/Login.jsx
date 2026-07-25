@@ -67,10 +67,6 @@ export default function Login() {
         <input type="submit" value={loading ? "Entrando..." : "Logar"} disabled={loading} />
       </form>
       <div className={style.loginOptions}>
-        <div className={style.rememberMe}>
-          <input type="checkbox" id="rememberMe" name="rememberMe" />
-          <label htmlFor="rememberMe">Lembrar de mim</label>
-        </div>
         <Link to="/forgot-password" className={style.highlight}>
           Esqueci minha senha
         </Link>
