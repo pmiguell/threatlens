@@ -75,6 +75,34 @@
     cursor: default;
 }
 
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0 0.5rem;
+    max-width: 600px;
+}
+
+.pageBtn {
+    background-color: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+}
+
+.pageBtn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.pageInfo {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
 /* Light mode */
 :global(body.light) .card {
     background-color: var(--color-surface-light);

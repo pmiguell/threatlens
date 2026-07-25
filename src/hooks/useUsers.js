@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useState } from "react";
 import { adminService } from "../services/admin/adminService";
 
-export function useUsers() {
+export function useUsers({ page = 0, size = 20 } = {}) {
   const [users, setUsers] = useState([]);
+  const [pagination, setPagination] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -10,14 +11,15 @@ export function useUsers() {
     setLoading(true);
     setError("");
     try {
-      const { data } = await adminService.listAll();
+      const { data } = await adminService.listAll({ page, size });
       setUsers(data.content);
+      setPagination({ page: data.page, size: data.size, totalElements: data.totalElements, totalPages: data.totalPages });
     } catch {
       setError("Erro ao carregar usuários.");
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [page, size]);
 
   useEffect(() => {
     fetchUsers();
@@ -26,7 +28,8 @@ export function useUsers() {
   async function deleteUser(id) {
     await adminService.deleteUser(id);
     setUsers((prev) => prev.filter((u) => u.id !== id));
+    setPagination((prev) => prev && { ...prev, totalElements: prev.totalElements - 1 });
   }
 
-  return { users, loading, error, deleteUser };
+  return { users, pagination, loading, error, deleteUser };
 }
