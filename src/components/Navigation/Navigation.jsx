@@ -2,9 +2,7 @@ import style from "./Navigation.module.css";
 import NavCategory from "../NavCategory/NavCategory";
 import NavItem from "../NavItem/NavItem";
 import { AiOutlineHome } from "react-icons/ai";
-import { GoAlert } from "react-icons/go";
 import { PiChatCenteredDots } from "react-icons/pi";
-import { TbReportAnalytics } from "react-icons/tb";
 import { CiUser, CiLogout } from "react-icons/ci";
 import { MdAdminPanelSettings } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
@@ -26,9 +24,7 @@ export default function Navigation() {
       </NavCategory>
 
       <NavCategory title="Serviços">
-        <NavItem to="/alerts" icon={<GoAlert size={20} className={style.navIcon} />} label="Alertas" />
         <NavItem to="/posts" icon={<PiChatCenteredDots size={20} className={style.navIcon} />} label="Posts" />
-        <NavItem to="/reports" icon={<TbReportAnalytics size={20} className={style.navIcon} />} label="Relatórios" />
       </NavCategory>
 
       <NavCategory title="Conta">
