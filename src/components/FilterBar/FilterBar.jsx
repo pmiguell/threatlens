@@ -1,53 +1,73 @@
 import style from "./FilterBar.module.css";
 import { useState } from "react";
 import { MdFilterList } from "react-icons/md";
+import DateRangePopUp from "../DateRangePopUp/DateRangePopUp";
 
-export default function FilterBar({ setFilter }) {
-  const [activeFilter, setActiveFilter] = useState("Tudo");
+export default function FilterBar({ activeFilter, setFilter, dateRange, onRangeApply, onRangeClear }) {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const handleFilterClick = (filter) => {
-    setActiveFilter(filter);
-    setFilter(filter);
+  const hasCustomRange = Boolean(dateRange?.from || dateRange?.to);
+
+  const handleApply = (range) => {
+    onRangeApply(range);
+    setIsPopupOpen(false);
+  };
+
+  const handleClear = () => {
+    onRangeClear();
+    setIsPopupOpen(false);
   };
 
   return (
     <div className={style.filterContainer}>
       <span className={style.periodBar}>
         <button
-          onClick={() => handleFilterClick("Dia")}
-          className={activeFilter === "Dia" ? style.activeBtn : ""}
+          onClick={() => setFilter("Dia")}
+          className={!hasCustomRange && activeFilter === "Dia" ? style.activeBtn : ""}
         >
           Dia
         </button>
         <button
-          onClick={() => handleFilterClick("Semana")}
-          className={activeFilter === "Semana" ? style.activeBtn : ""}
+          onClick={() => setFilter("Semana")}
+          className={!hasCustomRange && activeFilter === "Semana" ? style.activeBtn : ""}
         >
           Semana
         </button>
         <button
-          onClick={() => handleFilterClick("Mês")}
-          className={activeFilter === "Mês" ? style.activeBtn : ""}
+          onClick={() => setFilter("Mês")}
+          className={!hasCustomRange && activeFilter === "Mês" ? style.activeBtn : ""}
         >
           Mês
         </button>
         <button
-          onClick={() => handleFilterClick("Ano")}
-          className={activeFilter === "Ano" ? style.activeBtn : ""}
+          onClick={() => setFilter("Ano")}
+          className={!hasCustomRange && activeFilter === "Ano" ? style.activeBtn : ""}
         >
           Ano
         </button>
         <button
-          onClick={() => handleFilterClick("Tudo")}
-          className={activeFilter === "Tudo" ? style.activeBtn : ""}
+          onClick={() => setFilter("Tudo")}
+          className={!hasCustomRange && activeFilter === "Tudo" ? style.activeBtn : ""}
         >
           Tudo
         </button>
       </span>
-      <button className={style.intervalBtn}>
+      <button
+        className={hasCustomRange ? style.intervalBtnActive : style.intervalBtn}
+        onClick={() => setIsPopupOpen(true)}
+      >
         <MdFilterList size={23} />
         Filtrar período
       </button>
+
+      <DateRangePopUp
+        isOpen={isPopupOpen}
+        onClose={() => setIsPopupOpen(false)}
+        onApply={handleApply}
+        onClear={handleClear}
+        initialFrom={dateRange?.from ?? ""}
+        initialTo={dateRange?.to ?? ""}
+      />
     </div>
   );
 }
