@@ -7,7 +7,8 @@ import { useUsers } from "../../hooks";
 import { useAuth } from "../../context/AuthContext";
 
 export default function Admin() {
-  const { users, loading, error, deleteUser } = useUsers();
+  const [page, setPage] = useState(0);
+  const { users, pagination, loading, error, deleteUser } = useUsers({ page, size: 20 });
   const { user: currentUser } = useAuth();
   const [targetUser, setTargetUser] = useState(null);
   const [deleting, setDeleting] = useState(false);
@@ -19,6 +20,7 @@ export default function Admin() {
     try {
       await deleteUser(targetUser.id);
       setTargetUser(null);
+      if (users.length === 1 && page > 0) setPage((p) => p - 1);
     } catch {
       setDeleteError("Erro ao deletar usuário.");
       setTargetUser(null);
@@ -61,6 +63,28 @@ export default function Admin() {
             </div>
           ))}
         </div>
+
+        {pagination && pagination.totalPages > 1 && (
+          <div className={style.pagination}>
+            <button
+              className={style.pageBtn}
+              disabled={page === 0}
+              onClick={() => setPage((p) => p - 1)}
+            >
+              Anterior
+            </button>
+            <span className={style.pageInfo}>
+              Página {pagination.page + 1} de {pagination.totalPages}
+            </span>
+            <button
+              className={style.pageBtn}
+              disabled={page >= pagination.totalPages - 1}
+              onClick={() => setPage((p) => p + 1)}
+            >
+              Próxima
+            </button>
+          </div>
+        )}
       </div>
 
       <ConfirmModal
