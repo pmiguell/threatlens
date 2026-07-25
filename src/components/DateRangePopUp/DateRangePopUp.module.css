@@ -1,0 +1,115 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: var(--z-overlay);
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: calc(var(--z-overlay) + 1);
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    width: 20rem;
+    max-width: calc(100vw - 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.title {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.field label {
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+}
+
+.field input {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    border: 1px solid var(--color-text-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.5rem 0.75rem;
+    font-size: 0.95rem;
+}
+
+.error {
+    color: var(--color-danger);
+    font-size: 0.85rem;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.clearBtn {
+    background-color: transparent;
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-text-subtle);
+    border-radius: var(--radius-md);
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.clearBtn:hover {
+    border-color: var(--color-text-muted);
+}
+
+.applyBtn {
+    background-color: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-md);
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.applyBtn:hover {
+    opacity: 0.85;
+}
+
+/* Light mode */
+:global(body.light) .popup {
+    background-color: var(--color-surface-light);
+    box-shadow: var(--shadow-card);
+}
+
+:global(body.light) .title {
+    color: var(--color-text-light);
+}
+
+:global(body.light) .field label {
+    color: var(--color-text-muted-light);
+}
+
+:global(body.light) .field input {
+    background-color: var(--color-surface-muted-light);
+    color: var(--color-text-light);
+    border-color: var(--color-surface-alt-light);
+}
+
+:global(body.light) .clearBtn {
+    color: var(--color-text-muted-light);
+    border-color: var(--color-surface-alt-light);
+}

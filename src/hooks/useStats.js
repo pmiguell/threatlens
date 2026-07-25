@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getStats } from "../services/post/postService";
 
-export function useStats({ period } = {}) {
+export function useStats({ period, from, to } = {}) {
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -11,7 +11,13 @@ export function useStats({ period } = {}) {
     setLoading(true);
     setError(null);
 
-    const params = period && period !== "ALL" ? { period } : {};
+    const params = {};
+    if (from || to) {
+      if (from) params.from = from;
+      if (to) params.to = to;
+    } else if (period && period !== "ALL") {
+      params.period = period;
+    }
 
     getStats(params)
       .then((data) => { if (!cancelled) setStats(data); })
@@ -19,7 +25,7 @@ export function useStats({ period } = {}) {
       .finally(() => { if (!cancelled) setLoading(false); });
 
     return () => { cancelled = true; };
-  }, [period]);
+  }, [period, from, to]);
 
   return { stats, loading, error };
 }

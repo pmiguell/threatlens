@@ -55,6 +55,11 @@
     border-radius: var(--radius-lg);
 }
 
+.intervalBtnActive {
+    composes: intervalBtn;
+    background-color: var(--color-accent) !important;
+}
+
 :global(body.light) .periodBar {
   background-color: var(--color-surface-muted-light);
 }
