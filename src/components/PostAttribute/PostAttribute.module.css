@@ -1,43 +1,29 @@
-.attribute{
-    display:flex;
-    gap: 0.75rem;
-    margin: 1rem 0;
-    justify-content: center;
-
+.attribute {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 
-.attribute label{
-    color: #8A8A8A;
-    width: 15%;
-    font-weight:400;
-    flex-basis: 2;
+.label {
+    color: var(--color-text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.value {
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
-    flex: 1 1 1;
 }
 
-.attribute input{
-    flex: 1 2 1;
-    display: inline-flex;
-    width: 85%;
-    background-color: transparent;
-    border: none;
-    border-radius: var(--radius-sm);
-    height: 2rem;
-    outline: none;
+:global(body.light) .label {
+    color: var(--color-text-muted-light);
 }
 
-.attribute input:hover{
-    background-color: #2C2C2C;
-}
-
-:global(body.light) .attribute label {
-    color: var(--color-surface);
-}
-
-:global(body.light) .attribute input {
-    color: var(--color-text-subtle);
-}
-
-:global(body.light) .attribute input:hover {
-    background-color: var(--color-surface-muted-light);
+:global(body.light) .value {
+    color: var(--color-text-light);
 }

@@ -1,10 +1,14 @@
 import style from "./DoughnutChart.module.css";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
+import { useTheme } from "../../hooks";
 
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
 
 export default function DoughnutChart({ low = 0, medium = 0, high = 0 }) {
+  const isLight = useTheme();
+  const labelColor = isLight ? "#1E1E2F" : "#fff";
+
   const data = {
     labels: ["Baixa Relevância", "Média Relevância", "Alta Relevância"],
     datasets: [
@@ -28,10 +32,14 @@ export default function DoughnutChart({ low = 0, medium = 0, high = 0 }) {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
         position: "bottom",
-        align: 'center'
+        align: 'center',
+        labels: {
+          color: labelColor,
+        },
       },
     },
   };
@@ -39,7 +47,9 @@ export default function DoughnutChart({ low = 0, medium = 0, high = 0 }) {
   return (
     <div className={style.doughnutChartContainer}>
       <h2 className={style.description}>Rotulagem dos posts por Relevância</h2>
-      <Doughnut data={data} options={options} />
+      <div className={style.chartWrapper}>
+        <Doughnut data={data} options={options} />
+      </div>
     </div>
   );
 }

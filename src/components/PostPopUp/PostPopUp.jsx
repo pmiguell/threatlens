@@ -7,15 +7,17 @@ export default function PostPopUp({ isOpen, onClose, id, category, created_at, i
     }
 
     return (
-        <div className={style.postPopUp}>
-            <div className={style.postContent}>
-                <div className={style.topIcons} onClick={onClose}>
-                    ✖
+        <>
+            <div className={style.overlay} onClick={onClose} />
+            <div className={style.postPopUp} role="dialog" aria-modal="true">
+                <div className={style.header}>
+                    <h1>Detalhes do Post</h1>
+                    <button type="button" className={style.closeBtn} onClick={onClose} aria-label="Fechar">
+                        ✖
+                    </button>
                 </div>
 
                 <div className={style.postContainer}>
-                    <h1>Título Post</h1>
-
                     <div className={style.postAttributes}>
                         <PostAttribute name="ID" value={id} />
                         <PostAttribute name="Categoria" value={category} />
@@ -32,6 +34,6 @@ export default function PostPopUp({ isOpen, onClose, id, category, created_at, i
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

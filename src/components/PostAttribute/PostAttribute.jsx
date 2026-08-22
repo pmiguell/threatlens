@@ -1,10 +1,10 @@
 import style from "./PostAttribute.module.css"
 
-export default function PostAttributes(props){
-    return(
+export default function PostAttribute({ name, value }) {
+    return (
         <div className={style.attribute}>
-            <label htmlFor="">  {props.name} </label>
-            <input type="text" disabled value={props.value} />
+            <span className={style.label}>{name}</span>
+            <span className={style.value}>{value ?? "-"}</span>
         </div>
     )
 }

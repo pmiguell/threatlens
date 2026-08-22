@@ -35,7 +35,7 @@
     display: grid;
     grid-template-columns: 1fr 28rem;
     gap: 2rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .infosContainerCol1 {
@@ -47,6 +47,7 @@
 
 .infosContainerCol2 {
     min-width: 0;
+    display: flex;
 }
 
 @media (max-width: 1200px) {

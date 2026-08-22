@@ -7,8 +7,7 @@ import BarChart from "../BarChart/BarChart";
 import DoughnutChart from "../DoughnutChart/DoughnutChart";
 import WordCloud from "../WordCloud/WordCloud";
 import Header from "../Header/Header";
-import { wordCloudData } from "../../data/overviewData";
-import { useStats, usePosts } from "../../hooks";
+import { useStats, usePosts, useWordCloud } from "../../hooks";
 
 const FILTER_TO_PERIOD = {
   Dia: "DAY",
@@ -47,6 +46,7 @@ export default function Overview() {
 
   const { stats } = useStats({ period, from, to });
   const { posts: topPosts } = usePosts({ sort: "SCORE", order: "DESC", size: 5, period, from, to });
+  const { words: wordCloudData } = useWordCloud({ period, from, to });
 
   const analyzedPosts = stats?.summary.totalPosts ?? 0;
   const relevantPosts = stats?.summary.relevantPostsInPeriod ?? 0;
