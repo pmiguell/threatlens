@@ -1,22 +1,21 @@
 .description {
-    color: #eee;
+    color: var(--color-text);
     margin-bottom: 2rem;
     font-size: 22px;
 }
 
 .tableContainer {
-    background-color: #2A303D;
-    width: 34rem;
-    border-radius: 15px;
-    margin-top: 2rem;
+    background-color: var(--color-surface);
+    width: 100%;
+    border-radius: var(--radius-lg);
     padding: 1rem;
-    margin-bottom: 3rem;
+    box-sizing: border-box;
 }
 
 .tableScroll {
-    overflow-x: hidden;
+    overflow-x: auto;
     overflow-y: scroll;
-    scrollbar-color: #646464 #313131;
+    scrollbar-color: var(--color-text-subtle) var(--color-bg);
     height: 16rem;
     padding-right: 0.5rem;
 }
@@ -24,26 +23,27 @@
 table {
     width: 100%;
     border-collapse: collapse;
+    min-width: 400px;
 }
 
 thead {
-    color: #eee;
-    background-color: #212631;
+    color: var(--color-text);
+    background-color: var(--color-bg);
     height: 3rem;
 }
 
 thead th:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
 }
 
 thead th:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
 }
 
 tbody tr {
-    color: #B0B0B0;
+    color: var(--color-text-muted);
     height: 3rem;
 }
 
@@ -58,22 +58,22 @@ td {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #212631;
+    background-color: var(--color-bg);
 }
 
 tbody tr:nth-child(even) td:first-child {
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-top-left-radius: var(--radius-md);
+    border-bottom-left-radius: var(--radius-md);
 }
 
 tbody tr:nth-child(even) td:last-child {
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
+    border-top-right-radius: var(--radius-md);
+    border-bottom-right-radius: var(--radius-md);
 }
 
 table a {
     text-decoration: none;
-    color: #6558FF;
+    color: var(--color-accent);
 }
 
 .rate {
@@ -81,29 +81,27 @@ table a {
 }
 
 :global(body.light) .tableContainer {
-  background-color: #FFFFFF;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.300);
+  background-color: var(--color-surface-light);
+  box-shadow: var(--shadow-card);
 }
 
 :global(body.light) .description {
-  color: #2A303D;
+  color: var(--color-surface);
 }
 
 :global(body.light) thead {
-  color: #444444;
-  background-color: #EEEEEE;
+  color: var(--color-text-secondary-light);
+  background-color: var(--color-surface-muted-light);
 }
 
 :global(body.light) tbody tr:nth-child(even) {
-    background-color: #EEEEEE;
+    background-color: var(--color-surface-muted-light);
 }
 
 :global(body.light) tbody tr {
-    color: #646464;
+    color: var(--color-text-subtle);
 }
 
-:global(body.light) .tableScroll{
-    scrollbar-color: #EEEEEE #B0B0B0;
+:global(body.light) .tableScroll {
+    scrollbar-color: var(--color-surface-muted-light) var(--color-text-muted);
 }
-
-

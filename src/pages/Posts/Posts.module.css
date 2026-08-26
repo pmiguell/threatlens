@@ -9,12 +9,12 @@
 }
 
 .welcome h2 {
-  color: #eee;
+  color: var(--color-text);
   font-size: 1.75rem;
 }
 
 .welcome p {
-  color: #b0b0b0;
+  color: var(--color-text-muted);
 }
 
 .postsHeaderIcons {
@@ -23,11 +23,11 @@
 }
 
 .postsIcon {
-  background-color: #2a303d;
+  background-color: var(--color-surface);
   padding: 0.25rem;
-  border-radius: 5px;
+  border-radius: var(--radius-sm);
   font-size: 30px;
-  color: #eee;
+  color: var(--color-text);
 }
 
 .postsInputs {
@@ -36,25 +36,68 @@
 }
 
 .postsInputs input {
-  background-color: #2a303d;
-  color: #b0b0b0;
+  background-color: var(--color-surface);
+  color: var(--color-text-muted);
   border: none;
-  border-radius: 15px;
+  border-radius: var(--radius-lg);
   padding: 0.75rem;
   margin: 1rem 0;
 }
 
 .postsContainer {
-  background-color: #2a303d;
-  border-radius: 15px;
+  margin-top: 4rem;
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
   padding: 1rem;
 }
 
 :global(body.light) .postsInputs input {
-  background-color: #eee;
+  background-color: var(--color-text);
 }
 
 :global(body.light) .postsContainer {
-  background-color: #ffffff;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+  background-color: var(--color-surface-light);
+  box-shadow: var(--shadow-card);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0 0.5rem;
+}
+
+.pageBtn {
+  background-color: var(--color-primary, #6558FF);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+}
+
+.pageBtn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.pageInfo {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .posts {
+    margin: 4rem 1rem 1rem 1rem;
+  }
+
+  .postsContainer {
+    overflow-x: auto;
+  }
+
+  .postsInputs input {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }

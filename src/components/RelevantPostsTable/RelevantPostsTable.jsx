@@ -33,14 +33,16 @@ export default function RelevantPostsTable({ mostRelevantPosts }) {
             {mostRelevantPosts.map((post) => (
               <tr key={post.id}>
                 <td>{post.id}</td>
-                <td>{post.title}</td>
-                <td className={style.rate}>{post.rate}</td>
+                <td>{post.title ?? post.content?.slice(0, 60)}</td>
+                <td className={style.rate}>
+                  {(post.classification?.score ?? post.rate)?.toFixed(2)}
+                </td>
                 <td>
                   <a
                     href="#"
                     onClick={(e) => {
                       e.preventDefault();
-                      handleOpenPopup(post); // Passa o post selecionado
+                      handleOpenPopup(post);
                     }}
                   >
                     Analisar
@@ -51,16 +53,16 @@ export default function RelevantPostsTable({ mostRelevantPosts }) {
           </tbody>
         </table>
       </div>
-      <PostPopUp 
-        isOpen={isOpen} 
-        onClose={handleClosePopup} 
-        id={selectedPost?.id} 
-        category={selectedPost?.category} 
-        created_at={selectedPost?.created_at} 
-        ioc={selectedPost?.ioc} 
-        keyword={selectedPost?.keyword} 
-        relevant={selectedPost?.relevant} 
-        fulltext={selectedPost?.fulltext}
+      <PostPopUp
+        isOpen={isOpen}
+        onClose={handleClosePopup}
+        id={selectedPost?.id}
+        category={selectedPost?.category ?? "-"}
+        created_at={selectedPost?.createdAt ?? selectedPost?.created_at}
+        ioc={selectedPost?.classification ? (selectedPost.classification.ioc ? "Sim" : "Não") : selectedPost?.ioc}
+        keyword={selectedPost?.keyword ?? "-"}
+        relevant={selectedPost?.classification ? (selectedPost.classification.relevant ? "Sim" : "Não") : selectedPost?.relevant}
+        fulltext={selectedPost?.content ?? selectedPost?.fulltext}
       />
     </div>
   );

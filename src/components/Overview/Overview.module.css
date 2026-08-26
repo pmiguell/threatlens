@@ -1,5 +1,5 @@
 .app {
-    margin: 1rem 3rem 0 18rem;
+    margin: 1rem 3rem 1rem 18rem;
 }
 
 .dashboardHeader {
@@ -9,12 +9,12 @@
 }
 
 .welcome h2 {
-    color: #eee;
+    color: var(--color-text);
     font-size: 1.75rem;
 }
 
 .welcome p {
-    color: #B0B0B0;
+    color: var(--color-text-muted);
 }
 
 .dashboardHeaderIcons {
@@ -23,15 +23,41 @@
 }
 
 .headerIcon {
-    background-color: #2A303D;
+    background-color: var(--color-surface);
     padding: 0.25rem;
-    border-radius: 5px;
+    border-radius: var(--radius-sm);
     font-size: 30px;
-    color: #eee;
+    color: var(--color-text);
 }
 
 .infosContainer {
-    margin-top: 4rem;
-    display: flex;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 28rem;
     gap: 2rem;
+    align-items: stretch;
+}
+
+.infosContainerCol1 {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.infosContainerCol2 {
+    min-width: 0;
+    display: flex;
+}
+
+@media (max-width: 1200px) {
+    .infosContainer {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .app {
+        margin: 4rem 1rem 1rem 1rem;
+    }
 }

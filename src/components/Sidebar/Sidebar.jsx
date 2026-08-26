@@ -1,19 +1,16 @@
 import style from "./Sidebar.module.css";
-import { NavLink } from "react-router-dom";
-import { AiOutlineHome } from "react-icons/ai";
-import { GoAlert } from "react-icons/go";
-import { PiChatCenteredDots } from "react-icons/pi";
-import { TbReportAnalytics } from "react-icons/tb";
-import { CiUser, CiLogout } from "react-icons/ci";
+import { MdClose } from "react-icons/md";
 import Navigation from "../Navigation/Navigation";
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }) {
   return (
-    <aside className={style.sidebar}>
+    <aside className={`${style.sidebar} ${isOpen ? style.open : ""}`}>
+      <button className={style.closeBtn} onClick={onClose} aria-label="Fechar menu">
+        <MdClose />
+      </button>
       <h1 className={style.title}>
         Threat<span className={style.highlight}>Lens</span>
       </h1>
-
       <Navigation />
     </aside>
   );

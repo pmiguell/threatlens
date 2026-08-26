@@ -1,13 +1,13 @@
 .wordCloudContainer {
-    background-color: #2A303D;
-    border-radius: 15px;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
     width: 100%;
     margin-top: 2rem;
     padding: 2rem;
 }
 
 .description {
-    color: #eee;
+    color: var(--color-text);
     margin-bottom: 2rem;
     font-size: 22px;
 }
@@ -21,28 +21,28 @@
 
 .word {
   font-family: Arial, sans-serif;
-  fill: #eee;
+  fill: var(--color-text);
   transition: fill 0.3s;
 }
 
 .word:hover {
-  fill: #6558ff;
+  fill: var(--color-accent);
   cursor: pointer;
 }
 
 :global(body.light) .description {
-  color: #2A303D;
+  color: var(--color-surface);
 }
 
 :global(body.light) .wordCloudContainer {
-  background-color: #FFFFFF;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.300);
+  background-color: var(--color-surface-light);
+  box-shadow: var(--shadow-card);
 }
 
 :global(body.light) .word {
-  fill: #646464;
+  fill: var(--color-text-subtle);
 }
 
 :global(body.light) .word:hover {
-  fill: #6558ff;
+  fill: var(--color-accent);
 }

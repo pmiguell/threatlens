@@ -5,7 +5,8 @@
     table-layout: fixed;
 }
 
-.postsTable th, td {
+.postsTable th,
+.postsTable td {
     padding: 12px 16px;
     text-align: left;
 }
@@ -19,7 +20,7 @@
     color: #B0B0B0;
 }
 
-.postsTable tr:nth-child(odd) {
+.postsTable tbody tr:nth-child(even) {
     background-color: #212631;
 }
 
@@ -28,7 +29,7 @@
   background-color: #EEEEEE;
 }
 
-:global(body.light) .postsTable tr:nth-child(odd) {
+:global(body.light) .postsTable tbody tr:nth-child(even) {
     background-color: #EEE;
 }
 

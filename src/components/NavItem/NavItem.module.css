@@ -1,10 +1,19 @@
 .activeLink {
-  background-color: #6558ff;
-  border-radius: 15px;
+  background-color: var(--color-accent);
+  border-radius: var(--radius-lg);
   padding: 0.75rem;
+  color: #fff;
+}
+
+.activeLink svg {
+  color: #fff !important;
 }
 
 :global(body.light) .activeLink {
-  color: #eee;
+  color: #fff;
+}
+
+:global(body.light) .activeLink svg {
+  color: #fff !important;
 }
 

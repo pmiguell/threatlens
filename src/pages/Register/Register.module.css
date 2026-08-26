@@ -11,16 +11,16 @@
 }
 
 h1 {
-    color: #eee;
+    color: var(--color-text);
     font-size: 2.5rem;
 }
 
 .highlight {
-    color: #6558FF;
+    color: var(--color-accent);
 }
 
 p {
-    color: #B0B0B0;
+    color: var(--color-text-muted);
     font-size: 1rem;
 }
 
@@ -34,23 +34,23 @@ p {
 .registerForm input {
     width: 25rem;
     height: 3rem;
-    border-radius: 15px;
+    border-radius: var(--radius-lg);
     border: none;
-    background-color: #2A303D;
+    background-color: var(--color-surface);
     padding-left: 1rem;
-    color: #eee;
+    color: var(--color-text);
     font-size: 1rem;
 }
 
 .registerForm input::placeholder {
-    color: #eee;
+    color: var(--color-text);
 }
 
 .registerForm input[type="submit"] {
     font-weight: bold;
     font-size: 1rem;
-    color: #eee;
-    background-color: #6558FF;
+    color: var(--color-text);
+    background-color: var(--color-accent);
     cursor: pointer;
     padding: 0;
 }
@@ -61,12 +61,18 @@ p {
 
 a {
     text-decoration: none;
-    color: #eee;
+    color: var(--color-text);
     font-size: 1rem;
 }
 
 a:hover {
-    color: #B0B0B0;
+    color: var(--color-text-muted);
+}
+
+.errorMsg {
+    color: #ff4d4f;
+    font-size: 0.875rem;
+    margin: 0;
 }
 
 @media (max-width: 425px) {

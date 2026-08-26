@@ -1,20 +1,23 @@
 .barChartContainer {
-    background-color: #2A303D;
-    border-radius: 15px;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-lg);
     padding: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .description {
-    color: #eee;
+    color: #fff;
     margin-bottom: 2rem;
     font-size: 22px;
 }
 
 :global(body.light) .description {
-  color: #2A303D;
+  color: var(--color-surface);
 }
 
 :global(body.light) .barChartContainer {
-  background-color: #FFFFFF;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.300);
+  background-color: var(--color-surface-light);
+  box-shadow: var(--shadow-card);
 }

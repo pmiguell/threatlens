@@ -1,0 +1,124 @@
+.admin {
+    margin: 1rem 3rem 0 18rem;
+}
+
+.content {
+    margin-top: 4rem;
+}
+
+.message {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.error {
+    color: var(--color-danger);
+    font-size: 0.95rem;
+}
+
+.grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 600px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color-surface);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+}
+
+.cardInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.name {
+    color: var(--color-text);
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.email {
+    color: var(--color-text-muted);
+    font-size: 0.85rem;
+}
+
+.deleteBtn {
+    flex-shrink: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    color: var(--color-text-muted);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.deleteBtn:hover:not(:disabled) {
+    background-color: var(--color-danger);
+    color: #fff;
+}
+
+.deleteBtn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 0 0.5rem;
+    max-width: 600px;
+}
+
+.pageBtn {
+    background-color: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius-sm);
+    padding: 0.4rem 1rem;
+    cursor: pointer;
+}
+
+.pageBtn:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+.pageInfo {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* Light mode */
+:global(body.light) .card {
+    background-color: var(--color-surface-light);
+    box-shadow: var(--shadow-card);
+}
+
+:global(body.light) .name {
+    color: var(--color-text-light);
+}
+
+:global(body.light) .email {
+    color: var(--color-text-muted-light);
+}
+
+@media (max-width: 768px) {
+    .admin {
+        margin: 4rem 1rem 1rem 1rem;
+    }
+}
